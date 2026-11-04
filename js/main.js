@@ -83,9 +83,31 @@
     revealEls.forEach((el) => el.classList.add("in"));
   }
 
+  /* Failsafe: never leave an in-view element (esp. image unmasks) hidden */
+  if (!reduce) {
+    const sweep = () => {
+      revealEls.forEach((el) => {
+        if (el.classList.contains("in")) return;
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.96 && r.bottom > 0) el.classList.add("in");
+      });
+    };
+    requestAnimationFrame(() => requestAnimationFrame(sweep));
+    window.addEventListener("load", () => setTimeout(sweep, 150));
+    setTimeout(sweep, 1300);
+    let sweepTick = false;
+    window.addEventListener("scroll", () => {
+      if (sweepTick) return;
+      sweepTick = true;
+      requestAnimationFrame(() => { sweep(); sweepTick = false; });
+    }, { passive: true });
+  }
+
   /* ---------- Scroll-spy active nav ---------- */
   const navA = $$(".nav-links a");
-  const secs = navA.map((a) => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+  const secs = navA
+    .map((a) => { const h = a.getAttribute("href"); return h && h.charAt(0) === "#" && h.length > 1 ? document.querySelector(h) : null; })
+    .filter(Boolean);
   if (secs.length && "IntersectionObserver" in window) {
     const spy = new IntersectionObserver(
       (entries) => {
@@ -99,6 +121,38 @@
       { rootMargin: "-45% 0px -50% 0px" }
     );
     secs.forEach((s) => spy.observe(s));
+  }
+
+  /* ---------- Services showcase (live preview) ---------- */
+  const svcRows = $$(".svc-row");
+  const svcImg = $("#svcImg");
+  const svcTitle = $("#svcTitle");
+  const svcDesc = $("#svcDesc");
+  const svcTags = $("#svcTags");
+  if (svcRows.length && svcImg) {
+    // preload images to avoid flicker
+    svcRows.forEach((r) => { const i = new Image(); i.src = r.dataset.img; });
+    let current = null;
+    const activate = (row) => {
+      if (row === current) return;
+      current = row;
+      svcRows.forEach((r) => r.classList.toggle("active", r === row));
+      svcImg.classList.add("swap");
+      window.setTimeout(() => {
+        svcImg.src = row.dataset.img;
+        svcImg.alt = row.dataset.title;
+        svcImg.classList.remove("swap");
+      }, 190);
+      if (svcTitle) svcTitle.innerHTML = row.dataset.title;
+      if (svcDesc) svcDesc.textContent = row.dataset.desc;
+      if (svcTags) svcTags.innerHTML = (row.dataset.tags || "").split(",").filter(Boolean).map((t) => "<span>" + t + "</span>").join("");
+    };
+    svcRows.forEach((row) => {
+      row.addEventListener("mouseenter", () => { if (window.matchMedia("(pointer:fine)").matches) activate(row); });
+      row.addEventListener("click", () => activate(row));
+      row.addEventListener("focus", () => activate(row));
+      row.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); activate(row); } });
+    });
   }
 
   /* ---------- Hero electric network canvas ---------- */
