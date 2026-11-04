@@ -5,16 +5,20 @@ A premium, animated redesign of [wurmdobler-elektro.de](https://wurmdobler-elekt
 
 ## Highlights
 
-- **Premium dark UI** with an electric blue→cyan accent system, glassmorphism and subtle grain.
+- **Premium dark UI** built on the real brand: red `#D53334` → coral accent system (slate `#303442`),
+  glassmorphism and subtle grain.
+- **Real brand assets** pulled from the live WordPress site: the AW logo, favicon, project photography,
+  and partner logos (Hager, Siemens, SLV, Alfa).
 - **Motion:** scroll-triggered entrance reveals, animated count-up stats, parallax glow orbs,
-  magnetic buttons, 3D tilt cards, pointer-follow glow, animated scroll-progress bar, and an
-  interactive Smart-Home panel in the hero.
-- **Sections** mirror the original site: Hero, Über uns, Leistungen (Gebäudeautomation, Lichtsysteme,
-  Netzwerktechnik, Kommunikationstechnik, Sicherheitssysteme, Weitere Leistungen), Ablauf,
-  Standorte (München & Miltach), Kontakt, Footer.
+  magnetic buttons, 3D tilt on the hero/about photos, pointer-follow glow on cards, an animated
+  scroll-progress bar, a partner-logo marquee, and a hover-reveal portfolio gallery.
+- **Sections** mirror the original site: Hero, Partner-Marken, Über uns, Leistungen (Netzwerktechnik,
+  Sicherheitssysteme, Planung & Ausführung, Lichtsysteme, Schaltschrankbau, Kommunikationstechnik,
+  Smart Home Systeme), „Ein Auszug unserer Arbeiten", Ablauf, Standorte (München & Miltach), Kontakt, Footer.
+- **Authentic content:** real addresses, opening hours, phone (+49 176 817895 04) and email.
 - **Accessible:** semantic HTML, keyboard-friendly nav, and full `prefers-reduced-motion` support.
-- **Zero build step, no external image assets** — all iconography and illustration is inline SVG,
-  so it runs anywhere and loads instantly. Only Google Fonts is fetched externally.
+- **Zero build step** — plain HTML/CSS/JS. Service icons are crisp inline SVG; all photography is served
+  locally from `assets/`. Only Google Fonts is fetched externally.
 
 ## Tech
 
@@ -39,9 +43,8 @@ A workflow at `.github/workflows/deploy-pages.yml` deploys `main` automatically.
 One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 After that, every push to `main` publishes to the Pages URL.
 
-## Notes on content & assets
+## Assets
 
-Company details (two locations, opening hours, services) are reproduced from the live site.
-Original photography and the exact logo were not downloadable in the build environment, so
-placeholders (inline SVG mark + generated illustrations) are used and can be swapped for the
-real brand assets. Email/phone shown is a best-guess `info@` address — please confirm/replace.
+All brand assets are sourced from the live WordPress site (`wp-content/uploads`) and stored under
+`assets/` — `logos/` (AW logo + partner marks), `photos/` (real project photography), and
+`img/` (favicons). Swap any file in place to update the site; no code changes needed.
