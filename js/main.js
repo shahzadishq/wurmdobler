@@ -40,8 +40,30 @@
     $$("a", menu).forEach((a) => a.addEventListener("click", () => toggle(false)));
   }
 
-  /* ---------- Reveal on scroll ---------- */
-  const revealEls = $$("[data-reveal]");
+  /* ---------- Word-by-word headline split ---------- */
+  function splitWords(el) {
+    const nodes = Array.from(el.childNodes);
+    el.textContent = "";
+    let i = 0;
+    nodes.forEach((node) => {
+      const accent = node.nodeType === 1 && node.classList && node.classList.contains("accent");
+      const text = node.textContent;
+      text.split(/(\s+)/).forEach((tok) => {
+        if (tok === "") return;
+        if (/^\s+$/.test(tok)) { el.appendChild(document.createTextNode(" ")); return; }
+        const w = document.createElement("span"); w.className = "w";
+        const inner = document.createElement("span"); inner.className = "w-in" + (accent ? " accent" : "");
+        inner.textContent = tok;
+        inner.style.transitionDelay = (i * 0.05).toFixed(2) + "s";
+        w.appendChild(inner); el.appendChild(w);
+        i++;
+      });
+    });
+  }
+  if (!reduce) $$("[data-reveal-words]").forEach(splitWords);
+
+  /* ---------- Reveal on scroll (fade / image-unmask / words) ---------- */
+  const revealEls = $$("[data-reveal], [data-reveal-img], [data-reveal-words]");
   if (reduce) {
     revealEls.forEach((el) => el.classList.add("in"));
   } else if ("IntersectionObserver" in window) {
@@ -59,6 +81,84 @@
     revealEls.forEach((el) => io.observe(el));
   } else {
     revealEls.forEach((el) => el.classList.add("in"));
+  }
+
+  /* ---------- Scroll-spy active nav ---------- */
+  const navA = $$(".nav-links a");
+  const secs = navA.map((a) => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+  if (secs.length && "IntersectionObserver" in window) {
+    const spy = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            const id = "#" + e.target.id;
+            navA.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === id));
+          }
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    secs.forEach((s) => spy.observe(s));
+  }
+
+  /* ---------- Hero electric network canvas ---------- */
+  const canvas = document.getElementById("spark");
+  if (canvas && !reduce && canvas.getContext) {
+    const ctx = canvas.getContext("2d");
+    const hero = canvas.parentElement;
+    let w, h, dpr, nodes, raf, running = true;
+    const mouse = { x: -9999, y: -9999 };
+    function size() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = hero.clientWidth; h = hero.clientHeight;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const count = Math.max(26, Math.min(72, Math.round((w * h) / 17000)));
+      nodes = Array.from({ length: count }, () => ({
+        x: Math.random() * w, y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35,
+      }));
+    }
+    function tick() {
+      ctx.clearRect(0, 0, w, h);
+      for (const n of nodes) {
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < 0 || n.x > w) n.vx *= -1;
+        if (n.y < 0 || n.y > h) n.vy *= -1;
+        const dx = mouse.x - n.x, dy = mouse.y - n.y, d = Math.hypot(dx, dy);
+        if (d < 150 && d > 0.1) { n.x += (dx / d) * 0.7; n.y += (dy / d) * 0.7; }
+      }
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const a = nodes[i], b = nodes[j];
+          const d = Math.hypot(a.x - b.x, a.y - b.y);
+          if (d < 125) {
+            ctx.strokeStyle = "rgba(213,51,52," + (0.16 * (1 - d / 125)).toFixed(3) + ")";
+            ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+          }
+        }
+      }
+      for (const n of nodes) {
+        ctx.fillStyle = "rgba(213,51,52,0.55)";
+        ctx.beginPath(); ctx.arc(n.x, n.y, 1.8, 0, 6.2832); ctx.fill();
+      }
+      raf = requestAnimationFrame(tick);
+    }
+    size(); tick();
+    let rt;
+    window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { cancelAnimationFrame(raf); size(); tick(); }, 180); });
+    hero.addEventListener("mousemove", (e) => { const r = hero.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+    hero.addEventListener("mouseleave", () => { mouse.x = -9999; mouse.y = -9999; });
+    // pause when hero scrolled out of view
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver((en) => {
+        en.forEach((x) => {
+          if (x.isIntersecting && !running) { running = true; tick(); }
+          else if (!x.isIntersecting && running) { running = false; cancelAnimationFrame(raf); }
+        });
+      }, { threshold: 0 }).observe(hero);
+    }
   }
 
   /* ---------- Count-up numbers ---------- */
