@@ -43,6 +43,7 @@
   <nav class="hdr-nav" aria-label="Hauptnavigation">
     <a href="#leistungen" class="link-roll"><span data-t="Leistungen">Leistungen</span></a>
     <a href="#licht" class="link-roll"><span data-t="Licht">Licht</span></a>
+    <a href="#partner" class="link-roll"><span data-t="Partner">Partner</span></a>
     <a href="#arbeiten" class="link-roll"><span data-t="Arbeiten">Arbeiten</span></a>
     <a href="#ablauf" class="link-roll"><span data-t="Ablauf">Ablauf</span></a>
     <a href="#standorte" class="link-roll"><span data-t="Standorte">Standorte</span></a>
@@ -64,10 +65,11 @@
     <nav class="menu-links">
       <a href="#leistungen"><em>01</em><span>Leistungen</span></a>
       <a href="#licht"><em>02</em><span>Lichtsysteme</span></a>
-      <a href="#arbeiten"><em>03</em><span>Arbeiten</span></a>
-      <a href="#ablauf"><em>04</em><span>Ablauf</span></a>
-      <a href="#standorte"><em>05</em><span>Standorte</span></a>
-      <a href="#kontakt"><em>06</em><span>Kontakt</span></a>
+      <a href="#partner"><em>03</em><span>Partner</span></a>
+      <a href="#arbeiten"><em>04</em><span>Arbeiten</span></a>
+      <a href="#ablauf"><em>05</em><span>Ablauf</span></a>
+      <a href="#standorte"><em>06</em><span>Standorte</span></a>
+      <a href="#kontakt"><em>07</em><span>Kontakt</span></a>
     </nav>
     <div class="menu-foot">
       <a href="tel:+4917681789504">+49 176 817895 04</a>
@@ -131,7 +133,7 @@
 </section>
 
 <!-- ============ BRANDS ============ -->
-<section class="brands" aria-label="Partnermarken">
+<section class="brands theme-light" aria-label="Partnermarken">
   <p class="brands-label">Wir arbeiten ausschließlich mit Qualitätsmarken</p>
   <div class="brands-track">
     <div class="brands-row">
@@ -151,7 +153,7 @@
     <p class="eyebrow"><span>01</span> Über uns</p>
     <p class="manifesto-text" data-scrub-words>AW Elektrotechnik unter Leitung von Elektromeister Alexander Wurmdobler ist Ihr zuverlässiger Partner für private und kommerzielle Projekte. Wir planen, installieren und warten Elektroanlagen — <span class="hl">sicher, sauber und auf den Punkt.</span></p>
     <div class="manifesto-sign">
-      <div class="sig-avatar"><img src="assets/logos/aw-logo.png" alt="" /></div>
+      <div class="sig-avatar"><img src="assets/photos/alexander.png" alt="Elektromeister Alexander Wurmdobler" /><span class="sig-ring" aria-hidden="true"></span></div>
       <div><b>Alexander Wurmdobler</b><span>Elektromeister &amp; Inhaber</span></div>
     </div>
   </div>
@@ -285,7 +287,7 @@
 <!-- ============ LIGHT (interactive) ============ -->
 <section class="light" id="licht">
   <div class="light-stage" id="lightStage" data-cursor="Licht">
-    <img class="light-img" src="assets/photos/blue-light-room.png" alt="Raum mit indirekter blauer LED-Lichtvoute" />
+    <img class="light-img" src="assets/photos/night-house.jpg" alt="Wohnhaus mit stimmungsvoller Außenbeleuchtung bei Nacht" />
     <div class="light-mask" id="lightMask"></div>
     <div class="light-copy">
       <p class="eyebrow on-dark"><span>03</span> Lichtsysteme</p>
@@ -299,11 +301,66 @@
   </div>
 </section>
 
+<!-- ============ LIGHT THEME BLOCK ============ -->
+<div class="theme-light light-block">
+
+<!-- ============ PARTNER ============ -->
+<section class="partner" id="partner">
+  <div class="wrap partner-grid">
+    <div class="partner-copy">
+      <p class="eyebrow"><span>04</span> AW Elektrotechnik</p>
+      <h2 class="h2" data-split-lines>Der perfekte Partner für Ihr <em>Vorhaben</em>.</h2>
+      <p class="partner-lead">AW Elektrotechnik bietet eine breite Palette von Dienstleistungen an, um Ihre Anforderungen im Bereich der Elektrotechnik zu erfüllen. Egal, ob Sie eine neue Installation planen oder eine Reparatur oder Wartung benötigen — wir sind für Sie da.</p>
+
+      <div class="ptabs" role="tablist" aria-label="Leistungsbereiche">
+        <button class="ptab is-active" role="tab" aria-selected="true" aria-controls="pane-gewerbe" id="tab-gewerbe" data-pane="0">Kommerzieller Dienst</button>
+        <button class="ptab" role="tab" aria-selected="false" aria-controls="pane-haushalt" id="tab-haushalt" data-pane="1">Service für Haushalte</button>
+        <span class="ptab-ind" aria-hidden="true"></span>
+      </div>
+
+      <div class="ppanes">
+        <ul class="ppane is-active" id="pane-gewerbe" role="tabpanel" aria-labelledby="tab-gewerbe">
+          <li>Erstellen von Netzwerkinfrastruktur</li>
+          <li>Installation von Innen- und Außenbeleuchtung</li>
+          <li>Installation von E-Ladepunkten und deren Anmeldung</li>
+          <li>E-Check der elektrischen Anlage und deren Geräte</li>
+          <li>Erstellen von Potentialausgleichen</li>
+          <li>Renovierung oder Neuinstallation der elektrischen Anlage</li>
+          <li>Erstellen von Überspannungsschutz</li>
+          <li>Erstellen von intelligenten Bussystemen (KNX)</li>
+        </ul>
+        <ul class="ppane" id="pane-haushalt" role="tabpanel" aria-labelledby="tab-haushalt" hidden>
+          <li>Lieferung und Installation von Lichtsystemen</li>
+          <li>Austausch von Elektrogeräten</li>
+          <li>Renovierung von Schaltschränken &amp; Zählerschränken</li>
+          <li>Alarm-, Video- &amp; Brandmeldeanlagen</li>
+          <li>Audio- &amp; Videosprechanlagen</li>
+          <li>Smart-Home-Steuerungen</li>
+          <li>Errichten eines stabilen Netzwerks für Ihr Zuhause</li>
+        </ul>
+      </div>
+      <a href="mailto:info@wurmdobler-elektro.de" class="btn-pill" data-magnetic><span>Mehr erfahren</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
+
+    <div class="partner-visual">
+      <div class="pimgs" data-cursor="Projekt">
+        <img class="pimg is-active" src="assets/photos/restaurant.jpg" alt="Gastronomie mit durchdachtem Lichtkonzept" loading="lazy" />
+        <img class="pimg" src="assets/photos/wohnwand-licht.jpg" alt="Wohnzimmer mit LED-beleuchteter Wohnwand und Designer-Pendelleuchte" loading="lazy" />
+      </div>
+      <div class="pfloat">
+        <span class="pfloat-ico"><svg viewBox="0 0 32 32"><path d="M26.9 15.7c-.1-.4-.5-.7-.9-.7h-6l3.9-11.7c.1-.4 0-.9-.4-1.1-.4-.3-.8-.2-1.2 0l-17 13c-.3.3-.5.7-.3 1.1.2.4.6.7 1 .7h6L8.1 28.7c-.1.4 0 .9.4 1.1.1.1.3.2.5.2s.4-.1.6-.2l17-13c.3-.3.5-.7.3-1.1z"/></svg></span>
+        <div><b>Alles aus einer Hand</b><span>Planung · Montage · Wartung</span></div>
+      </div>
+      <div class="pcount"><b id="pCountNow">01</b><span>/ 02</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ WORKS ============ -->
 <section class="works" id="arbeiten">
   <div class="wrap works-head">
     <div>
-      <p class="eyebrow"><span>04</span> Referenzen</p>
+      <p class="eyebrow"><span>05</span> Referenzen</p>
       <h2 class="h2" data-split-lines>Ein Auszug unserer <em>Arbeiten</em>.</h2>
     </div>
     <p class="works-lead">AW Elektrotechnik hat bereits eine ganze Reihe von Projekten realisiert — für jedes Problem kennen wir die passende Lösung.</p>
@@ -332,11 +389,14 @@
   <div class="kinetic-row outline" data-dir="-1"><span>Smart Home <i>✦</i> Kommunikationstechnik <i>✦</i> E-Mobilität <i>✦</i> E-Check <i>✦</i> </span><span>Smart Home <i>✦</i> Kommunikationstechnik <i>✦</i> E-Mobilität <i>✦</i> E-Check <i>✦</i> </span></div>
 </div>
 
+</div><!-- /light block -->
+
 <!-- ============ PROCESS ============ -->
 <section class="process" id="ablauf">
+  <div class="process-bg" aria-hidden="true"></div>
   <div class="wrap process-grid">
     <div class="process-sticky">
-      <p class="eyebrow"><span>05</span> Ablauf</p>
+      <p class="eyebrow"><span>06</span> Ablauf</p>
       <h2 class="h2" data-split-lines>Transparent in <em>vier Schritten</em>.</h2>
       <p class="process-lead">Klare Kommunikation, feste Ansprechpartner und ein Ergebnis, auf das Sie sich verlassen können.</p>
     </div>
@@ -351,12 +411,18 @@
 </section>
 
 <!-- ============ LOCATIONS ============ -->
-<section class="locs" id="standorte">
+<section class="locs theme-light" id="standorte">
   <div class="wrap">
-    <p class="eyebrow"><span>06</span> Standorte</p>
+    <p class="eyebrow"><span>07</span> Standorte</p>
     <h2 class="h2" data-split-lines>Zwei Standorte. <em>Ein Anspruch.</em></h2>
     <div class="locs-grid">
       <article class="loc" data-tilt>
+        <div class="loc-map" data-map="https://maps.google.com/maps?q=Taulerstra%C3%9Fe+24,+81739+M%C3%BCnchen&amp;z=14&amp;output=embed">
+          <img src="assets/photos/map-muenchen.jpg" alt="Kartenausschnitt München" loading="lazy" />
+          <span class="loc-pin" aria-hidden="true"></span>
+          <button class="loc-map-btn" type="button"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>Interaktive Karte laden</button>
+          <small class="loc-map-note">Beim Laden werden Daten an Google übertragen.</small>
+        </div>
         <div class="loc-top"><span class="loc-status" data-open-status>—</span><span class="loc-time" data-clock>--:--</span></div>
         <h3>München</h3>
         <p class="loc-addr">Taulerstraße 24<br>81739 München</p>
@@ -367,6 +433,12 @@
         </div>
       </article>
       <article class="loc" data-tilt>
+        <div class="loc-map" data-map="https://maps.google.com/maps?q=Wilhelmstra%C3%9Fe+2,+93468+Miltach&amp;z=14&amp;output=embed">
+          <img src="assets/photos/map-miltach.jpg" alt="Kartenausschnitt Miltach" loading="lazy" />
+          <span class="loc-pin" aria-hidden="true"></span>
+          <button class="loc-map-btn" type="button"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>Interaktive Karte laden</button>
+          <small class="loc-map-note">Beim Laden werden Daten an Google übertragen.</small>
+        </div>
         <div class="loc-top"><span class="loc-status" data-open-status>—</span><span class="loc-time" data-clock>--:--</span></div>
         <h3>Miltach</h3>
         <p class="loc-addr">Wilhelmstraße 2<br>93468 Miltach</p>
@@ -384,7 +456,7 @@
 <section class="cta" id="kontakt">
   <div class="cta-glow" aria-hidden="true"></div>
   <div class="wrap cta-inner">
-    <p class="eyebrow on-dark"><span>07</span> Kontakt</p>
+    <p class="eyebrow on-dark"><span>08</span> Kontakt</p>
     <h2 class="cta-title">
       <span class="ln"><span class="lni">Bringen wir Ihr</span></span>
       <span class="ln"><span class="lni">Projekt <em>ans Netz</em>.</span></span>

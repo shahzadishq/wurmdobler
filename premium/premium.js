@@ -99,6 +99,57 @@
     });
   });
 
+  /* ---------- Partner tabs ---------- */
+  (function partnerTabs() {
+    var tabs = Array.from(document.querySelectorAll(".ptab"));
+    var panes = Array.from(document.querySelectorAll(".ppane"));
+    var imgs = Array.from(document.querySelectorAll(".pimg"));
+    var ind = document.querySelector(".ptab-ind");
+    var nowEl = document.getElementById("pCountNow");
+    if (!tabs.length) return;
+    function placeInd(t) { ind.style.width = t.offsetWidth + "px"; ind.style.transform = "translateX(" + (t.offsetLeft - 6) + "px)"; }
+    function show(i) {
+      tabs.forEach(function (t, k) { t.classList.toggle("is-active", k === i); t.setAttribute("aria-selected", String(k === i)); t.tabIndex = k === i ? 0 : -1; });
+      panes.forEach(function (p, k) {
+        p.hidden = k !== i;
+        p.classList.toggle("is-active", k === i);
+        if (k === i) p.querySelectorAll("li").forEach(function (li, n) { li.style.setProperty("--i", n); li.classList.remove("in"); void li.offsetWidth; li.classList.add("in"); });
+      });
+      imgs.forEach(function (im, k) {
+        var was = im.classList.contains("is-active");
+        im.classList.toggle("is-active", k === i);
+        im.classList.toggle("is-leaving", was && k !== i);
+        if (k === i) setTimeout(function () { imgs.forEach(function (o) { if (o !== im) o.classList.remove("is-leaving"); }); }, 1250);
+      });
+      if (nowEl) nowEl.textContent = "0" + (i + 1);
+      placeInd(tabs[i]);
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener("click", function () { show(i); });
+      t.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowRight" || e.key === "ArrowLeft") { var n = (i + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length; tabs[n].focus(); show(n); }
+      });
+    });
+    placeInd(tabs[0]);
+    window.addEventListener("resize", function () { placeInd(document.querySelector(".ptab.is-active")); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { placeInd(document.querySelector(".ptab.is-active")); });
+  })();
+
+  /* ---------- Google Maps (click to load, DSGVO-friendly) ---------- */
+  document.querySelectorAll(".loc-map").forEach(function (box) {
+    var btn = box.querySelector(".loc-map-btn");
+    btn.addEventListener("click", function () {
+      var f = document.createElement("iframe");
+      f.src = box.dataset.map;
+      f.loading = "lazy";
+      f.title = "Google Maps — " + (box.querySelector("img").alt || "Standort");
+      f.referrerPolicy = "no-referrer-when-downgrade";
+      f.setAttribute("allowfullscreen", "");
+      box.appendChild(f);
+      box.classList.add("is-live");
+    });
+  });
+
   /* ---------- No GSAP fallback ---------- */
   if (!hasGsap) {
     doc.classList.add("no-gsap");
@@ -313,6 +364,12 @@
   gsap.utils.toArray(".step").forEach(function (s) {
     ST.create({ trigger: s, start: "top 65%", onEnter: function () { s.classList.add("is-active"); }, onLeaveBack: function () { s.classList.remove("is-active"); } });
   });
+
+  /* ---------- Partner entrance ---------- */
+  gsap.from(".pimgs", { clipPath: "inset(12% 12% 12% 12% round 30px)", duration: 1.6, ease: "expo.inOut", scrollTrigger: { trigger: ".partner", start: "top 70%" } });
+  gsap.from(".pfloat", { x: -60, autoAlpha: 0, duration: 1.2, ease: "expo.out", delay: .5, scrollTrigger: { trigger: ".partner", start: "top 70%" } });
+  gsap.from(".ppane.is-active li", { y: 24, autoAlpha: 0, duration: .9, ease: "expo.out", stagger: .05, scrollTrigger: { trigger: ".ppanes", start: "top 85%" } });
+  gsap.from(".ptabs, .partner-lead", { y: 24, autoAlpha: 0, duration: 1, ease: "expo.out", stagger: .1, scrollTrigger: { trigger: ".partner-lead", start: "top 88%" } });
 
   /* ---------- Locations / CTA ---------- */
   gsap.from(".loc", { y: 80, autoAlpha: 0, duration: 1.2, ease: "expo.out", stagger: 0.12, scrollTrigger: { trigger: ".locs-grid", start: "top 85%" } });
