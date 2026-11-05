@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AW Elektrotechnik — Elektrotechnik aus Meisterhand</title>
+<meta name="description" content="AW Elektrotechnik (Alexander Wurmdobler) — Elektromeisterbetrieb in München & Miltach. Netzwerk- & Sicherheitstechnik, Lichtsysteme, Schaltschrankbau, Kommunikationstechnik und Smart Home." />
+<meta name="theme-color" content="#0d0e12" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="premium/premium.css" />
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" />
+<link rel="apple-touch-icon" href="assets/img/favicon-192.png" />
+</head>
+<body class="is-loading">
+
+<!-- ============ PRELOADER ============ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <img src="assets/logos/aw-logo.png" alt="" class="loader-logo" />
+    <div class="loader-bar"><span id="loaderBar"></span></div>
+    <div class="loader-meta">
+      <span>Spannung wird aufgebaut</span>
+      <span class="loader-count"><b id="loaderCount">000</b> V</span>
+    </div>
+  </div>
+  <div class="loader-panel p1"></div>
+  <div class="loader-panel p2"></div>
+</div>
+
+<!-- ============ CURSOR ============ -->
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor-label" id="cursorLabel"></span></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="hdr" id="hdr">
+  <a href="#top" class="hdr-brand" aria-label="AW Elektrotechnik Startseite">
+    <img src="assets/logos/aw-logo.png" alt="AW Elektrotechnik" />
+    <span>Elektrotechnik<small>Alexander Wurmdobler</small></span>
+  </a>
+  <nav class="hdr-nav" aria-label="Hauptnavigation">
+    <a href="#leistungen" class="link-roll"><span data-t="Leistungen">Leistungen</span></a>
+    <a href="#licht" class="link-roll"><span data-t="Licht">Licht</span></a>
+    <a href="#arbeiten" class="link-roll"><span data-t="Arbeiten">Arbeiten</span></a>
+    <a href="#ablauf" class="link-roll"><span data-t="Ablauf">Ablauf</span></a>
+    <a href="#standorte" class="link-roll"><span data-t="Standorte">Standorte</span></a>
+  </nav>
+  <div class="hdr-right">
+    <a href="tel:+4917681789504" class="hdr-phone"><i class="live"></i>+49 176 817895 04</a>
+    <a href="mailto:info@wurmdobler-elektro.de" class="btn-pill" data-magnetic data-cursor="Mail">
+      <span>Angebot anfordern</span>
+      <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- Fullscreen menu -->
+<div class="menu" id="menu" aria-hidden="true">
+  <div class="menu-bg"></div>
+  <div class="menu-inner">
+    <nav class="menu-links">
+      <a href="#leistungen"><em>01</em><span>Leistungen</span></a>
+      <a href="#licht"><em>02</em><span>Lichtsysteme</span></a>
+      <a href="#arbeiten"><em>03</em><span>Arbeiten</span></a>
+      <a href="#ablauf"><em>04</em><span>Ablauf</span></a>
+      <a href="#standorte"><em>05</em><span>Standorte</span></a>
+      <a href="#kontakt"><em>06</em><span>Kontakt</span></a>
+    </nav>
+    <div class="menu-foot">
+      <a href="tel:+4917681789504">+49 176 817895 04</a>
+      <a href="mailto:info@wurmdobler-elektro.de">info@wurmdobler-elektro.de</a>
+    </div>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-media">
+    <img src="assets/photos/work3.jpeg" alt="KNX-Smart-Home-Taster an anthrazitfarbener Wand, installiert von AW Elektrotechnik" id="heroImg" />
+    <div class="hero-shade"></div>
+  </div>
+
+  <svg class="hero-circuit" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true">
+    <path class="trace" d="M-20 640 H340 L420 560 H760 L820 620 H1100 L1180 540 H1620" />
+    <path class="trace t2" d="M-20 720 H220 L300 800 H640 L700 740 H980 L1040 800 H1620" />
+    <path class="pulse" d="M-20 640 H340 L420 560 H760 L820 620 H1100 L1180 540 H1620" />
+    <path class="pulse p2" d="M-20 720 H220 L300 800 H640 L700 740 H980 L1040 800 H1620" />
+  </svg>
+
+  <div class="hero-content">
+    <p class="hero-kicker" data-hero-fade><span class="dot"></span>Elektromeisterbetrieb · München &amp; Miltach</p>
+    <h1 class="hero-title" aria-label="Elektrotechnik aus Meisterhand.">
+      <span class="ln"><span class="lni" data-chars>Elektrotechnik</span></span>
+      <span class="ln"><span class="lni"><em data-chars>aus</em> <span data-chars>Meisterhand</span><span class="red-dot" data-chars>.</span></span></span>
+    </h1>
+    <div class="hero-bottom">
+      <p class="hero-lead" data-hero-fade>Von der Planung über die Installation bis zur Wartung — wir sorgen dafür, dass Ihre Elektroanlagen <strong>sicher, effizient und zuverlässig</strong> funktionieren.</p>
+      <div class="hero-cta" data-hero-fade>
+        <a href="mailto:info@wurmdobler-elektro.de" class="btn-big" data-magnetic data-cursor="Los">
+          <span class="btn-big-fill"></span>
+          <span class="btn-big-txt">Kostenloses Angebot</span>
+          <span class="btn-big-ico"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a href="#leistungen" class="btn-ghost link-roll"><span data-t="Leistungen entdecken">Leistungen entdecken</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-badge" data-hero-fade aria-hidden="true">
+    <svg viewBox="0 0 200 200">
+      <defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs>
+      <text><textPath href="#circ">MEISTERBETRIEB • MÜNCHEN • MILTACH • SEIT ÜBER 15 JAHREN • </textPath></text>
+    </svg>
+    <img src="assets/logos/aw-logo.png" alt="" />
+  </div>
+
+  <div class="hero-scroll" data-hero-fade aria-hidden="true">
+    <span>Scroll</span><i></i>
+  </div>
+
+  <ul class="hero-meta" data-hero-fade>
+    <li><b>15+</b> Jahre Erfahrung</li>
+    <li><b>07</b> Leistungsbereiche</li>
+    <li><b>02</b> Standorte in Bayern</li>
+  </ul>
+</section>
+
+<!-- ============ BRANDS ============ -->
+<section class="brands" aria-label="Partnermarken">
+  <p class="brands-label">Wir arbeiten ausschließlich mit Qualitätsmarken</p>
+  <div class="brands-track">
+    <div class="brands-row">
+      <img src="assets/logos/hager.png" alt="Hager" /><img src="assets/logos/siemens.png" alt="Siemens" /><img src="assets/logos/slv.png" alt="SLV" /><img src="assets/logos/alfa.png" alt="Alfa" />
+      <img src="assets/logos/hager.png" alt="" /><img src="assets/logos/siemens.png" alt="" /><img src="assets/logos/slv.png" alt="" /><img src="assets/logos/alfa.png" alt="" />
+    </div>
+    <div class="brands-row" aria-hidden="true">
+      <img src="assets/logos/hager.png" alt="" /><img src="assets/logos/siemens.png" alt="" /><img src="assets/logos/slv.png" alt="" /><img src="assets/logos/alfa.png" alt="" />
+      <img src="assets/logos/hager.png" alt="" /><img src="assets/logos/siemens.png" alt="" /><img src="assets/logos/slv.png" alt="" /><img src="assets/logos/alfa.png" alt="" />
+    </div>
+  </div>
+</section>
+
+<!-- ============ MANIFESTO ============ -->
+<section class="manifesto" id="ueber-uns">
+  <div class="wrap">
+    <p class="eyebrow"><span>01</span> Über uns</p>
+    <p class="manifesto-text" data-scrub-words>AW Elektrotechnik unter Leitung von Elektromeister Alexander Wurmdobler ist Ihr zuverlässiger Partner für private und kommerzielle Projekte. Wir planen, installieren und warten Elektroanlagen — <span class="hl">sicher, sauber und auf den Punkt.</span></p>
+    <div class="manifesto-sign">
+      <div class="sig-avatar"><img src="assets/logos/aw-logo.png" alt="" /></div>
+      <div><b>Alexander Wurmdobler</b><span>Elektromeister &amp; Inhaber</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPANDING IMAGE ============ -->
+<section class="expand" aria-label="Schaltschrankbau">
+  <div class="expand-pin">
+    <div class="expand-frame" id="expandFrame">
+      <img src="assets/photos/about.png" alt="Sauber verdrahteter Schaltschrank von AW Elektrotechnik" />
+      <div class="expand-shade"></div>
+    </div>
+    <div class="expand-copy">
+      <p class="eyebrow on-dark"><span>✦</span> Handwerk im Detail</p>
+      <h2 class="expand-title"><span class="ln"><span class="lni">Ordnung,</span></span><span class="ln"><span class="lni">die man <em>sieht</em>.</span></span></h2>
+      <p class="expand-sub">Jede Ader beschriftet. Jede Klemme dokumentiert. Schaltschrankbau nach Norm — gebaut für Jahrzehnte.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES (horizontal) ============ -->
+<section class="services" id="leistungen">
+  <div class="services-head wrap">
+    <p class="eyebrow"><span>02</span> Unsere Leistungen</p>
+    <h2 class="h2" data-split-lines>Alles, was Strom braucht. <em>Aus einer Hand.</em></h2>
+  </div>
+
+  <div class="hscroll" id="hscroll">
+    <div class="hscroll-track" id="hscrollTrack">
+
+      <article class="svc">
+        <div class="svc-media"><img src="assets/photos/commercial.jpg" alt="Elektriker mit Tablet am Netzwerkschrank" /></div>
+        <div class="svc-body">
+          <span class="svc-no">01</span>
+          <h3>Netzwerk&shy;technik</h3>
+          <p>Erstellen von Netzwerkinfrastruktur sowie strukturierte Verkabelung für stabile, schnelle Datenverbindungen in Haus und Betrieb.</p>
+          <ul class="tags"><li>LAN</li><li>WLAN</li><li>Verkabelung</li></ul>
+        </div>
+      </article>
+
+      <article class="svc">
+        <div class="svc-media"><img src="assets/photos/panel.jpg" alt="Verteilung mit Sicherheitstechnik" /></div>
+        <div class="svc-body">
+          <span class="svc-no">02</span>
+          <h3>Sicherheits&shy;systeme</h3>
+          <p>Einbruchmelde-, Brandmelde- und Videoüberwachungsanlagen. Wir schützen zuverlässig, was Ihnen wichtig ist — normgerecht installiert.</p>
+          <ul class="tags"><li>Alarm</li><li>Brandmelder</li><li>Video</li></ul>
+        </div>
+      </article>
+
+      <article class="svc">
+        <div class="svc-media"><img src="assets/photos/work6.jpeg" alt="Steckdose in Holzwand" /></div>
+        <div class="svc-body">
+          <span class="svc-no">03</span>
+          <h3>Planung &amp; Ausführung</h3>
+          <p>Von der ersten Idee bis zur fertigen Anlage — durchdachte Planung und präzise Ausführung für Neubau, Sanierung und Erweiterung.</p>
+          <ul class="tags"><li>Neubau</li><li>Sanierung</li><li>Beratung</li></ul>
+        </div>
+      </article>
+
+      <article class="svc">
+        <div class="svc-media"><img src="assets/photos/team.png" alt="Treppe mit LED-Stufenbeleuchtung" /></div>
+        <div class="svc-body">
+          <span class="svc-no">04</span>
+          <h3>Licht&shy;systeme</h3>
+          <p>Innen- und Außenbeleuchtung mit dynamischem Lichtmanagement — durchdachte Konzepte für Atmosphäre und Energieeffizienz.</p>
+          <ul class="tags"><li>LED</li><li>Lichtsteuerung</li><li>Außenlicht</li></ul>
+        </div>
+      </article>
+
+      <article class="svc">
+        <div class="svc-media"><img src="assets/photos/work1.jpeg" alt="Schaltschrank mit Hager-Komponenten" /></div>
+        <div class="svc-body">
+          <span class="svc-no">05</span>
+          <h3>Schaltschrank&shy;bau</h3>
+          <p>Individueller Schaltschrankbau — fachgerecht verdrahtet, übersichtlich aufgebaut und sauber dokumentiert für maximale Betriebssicherheit.</p>
+          <ul class="tags"><li>Verteiler</li><li>Verdrahtung</li><li>Hager</li></ul>
+        </div>
+      </article>
+
+      <article class="svc">
+        <div class="svc-media"><img src="assets/photos/work2.jpeg" alt="Video-Türsprechanlage an Betonwand" /></div>
+        <div class="svc-body">
+          <span class="svc-no">06</span>
+          <h3>Kommunikations&shy;technik</h3>
+          <p>Hausinterne Anlagen wie Gegensprech- und Video-Türsprechanlagen — für mehr Komfort und Sicherheit an Ihrer Eingangstür.</p>
+          <ul class="tags"><li>Türsprechanlage</li><li>Video</li><li>Gegensprechen</li></ul>
+        </div>
+      </article>
+
+      <article class="svc">
+        <div class="svc-media"><img src="assets/photos/work3.jpeg" alt="KNX-Taster an dunkler Wand" /></div>
+        <div class="svc-body">
+          <span class="svc-no">07</span>
+          <h3>Smart Home Systeme</h3>
+          <p>Intelligente Gebäudesteuerung über KNX — Jalousien, Temperatur, Licht und Szenen zentral und automatisiert steuern.</p>
+          <ul class="tags"><li>KNX</li><li>Automation</li><li>Komfort</li></ul>
+        </div>
+      </article>
+
+      <article class="svc svc-more">
+        <div class="svc-body">
+          <span class="svc-no">+</span>
+          <h3>Und außerdem</h3>
+          <ul class="more-list">
+            <li>E-Ladepunkte inkl. Anmeldung</li>
+            <li>E-Check der Anlage &amp; Geräte</li>
+            <li>Potentialausgleiche</li>
+            <li>Innen- &amp; Außenbeleuchtung</li>
+            <li>Renovierung &amp; Neuinstallation</li>
+          </ul>
+          <a href="mailto:info@wurmdobler-elektro.de" class="btn-pill is-light" data-magnetic><span>Projekt anfragen</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        </div>
+      </article>
+
+    </div>
+    <div class="hscroll-progress"><span id="hscrollBar"></span></div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><b data-count="15">0</b><i>+</i><span>Jahre Erfahrung</span></div>
+    <div class="stat"><b data-count="500">0</b><i>+</i><span>Umgesetzte Projekte</span></div>
+    <div class="stat"><b data-count="7">0</b><i></i><span>Leistungsbereiche</span></div>
+    <div class="stat"><b data-count="100">0</b><i>%</i><span>Meisterqualität</span></div>
+  </div>
+</section>
+
+<!-- ============ LIGHT (interactive) ============ -->
+<section class="light" id="licht">
+  <div class="light-stage" id="lightStage" data-cursor="Licht">
+    <img class="light-img" src="assets/photos/blue-light-room.png" alt="Raum mit indirekter blauer LED-Lichtvoute" />
+    <div class="light-mask" id="lightMask"></div>
+    <div class="light-copy">
+      <p class="eyebrow on-dark"><span>03</span> Lichtsysteme</p>
+      <h2 class="h2 light-title">Licht, das Räume <em>verwandelt</em>.</h2>
+      <p class="light-sub">Bewegen Sie den Cursor — oder schalten Sie das Licht ein.</p>
+      <button class="switch" id="lightSwitch" role="switch" aria-checked="false" aria-label="Licht einschalten">
+        <span class="switch-track"><span class="switch-knob"></span></span>
+        <span class="switch-label"><span class="off">Aus</span><span class="on">An</span></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORKS ============ -->
+<section class="works" id="arbeiten">
+  <div class="wrap works-head">
+    <div>
+      <p class="eyebrow"><span>04</span> Referenzen</p>
+      <h2 class="h2" data-split-lines>Ein Auszug unserer <em>Arbeiten</em>.</h2>
+    </div>
+    <p class="works-lead">AW Elektrotechnik hat bereits eine ganze Reihe von Projekten realisiert — für jedes Problem kennen wir die passende Lösung.</p>
+  </div>
+
+  <div class="works-cols wrap">
+    <div class="wcol" data-speed="-60">
+      <figure class="work" data-cursor="Ansehen"><img src="assets/photos/work4.jpeg" alt="Treppenhaus mit LED-Stufenlicht" loading="lazy" /><figcaption><span>Lichtsysteme</span><b>Stufenbeleuchtung</b></figcaption></figure>
+      <figure class="work" data-cursor="Ansehen"><img src="assets/photos/repair.jpg" alt="Verteilung im Neubau" loading="lazy" /><figcaption><span>Planung</span><b>Neubau-Verteilung</b></figcaption></figure>
+    </div>
+    <div class="wcol" data-speed="60">
+      <figure class="work" data-cursor="Ansehen"><img src="assets/photos/work3.jpeg" alt="KNX-Taster" loading="lazy" /><figcaption><span>Smart Home</span><b>KNX-Steuerung</b></figcaption></figure>
+      <figure class="work" data-cursor="Ansehen"><img src="assets/photos/work1.jpeg" alt="Schaltschrank" loading="lazy" /><figcaption><span>Schaltschrankbau</span><b>Zählerschrank</b></figcaption></figure>
+    </div>
+    <div class="wcol" data-speed="-30">
+      <figure class="work" data-cursor="Ansehen"><img src="assets/photos/work5.jpeg" alt="Steckdose in Klinkerwand" loading="lazy" /><figcaption><span>Installation</span><b>Steckdose Klinker</b></figcaption></figure>
+      <figure class="work" data-cursor="Ansehen"><img src="assets/photos/house.jpg" alt="Edison-Leuchten" loading="lazy" /><figcaption><span>Licht</span><b>Gastronomie</b></figcaption></figure>
+      <figure class="work" data-cursor="Ansehen"><img src="assets/photos/work2.jpeg" alt="Türsprechanlage" loading="lazy" /><figcaption><span>Kommunikation</span><b>Video-Türstation</b></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- Kinetic strip -->
+<div class="kinetic" aria-hidden="true">
+  <div class="kinetic-row" data-dir="1"><span>Netzwerktechnik <i>✦</i> Sicherheitssysteme <i>✦</i> Lichtsysteme <i>✦</i> Schaltschrankbau <i>✦</i> </span><span>Netzwerktechnik <i>✦</i> Sicherheitssysteme <i>✦</i> Lichtsysteme <i>✦</i> Schaltschrankbau <i>✦</i> </span></div>
+  <div class="kinetic-row outline" data-dir="-1"><span>Smart Home <i>✦</i> Kommunikationstechnik <i>✦</i> E-Mobilität <i>✦</i> E-Check <i>✦</i> </span><span>Smart Home <i>✦</i> Kommunikationstechnik <i>✦</i> E-Mobilität <i>✦</i> E-Check <i>✦</i> </span></div>
+</div>
+
+<!-- ============ PROCESS ============ -->
+<section class="process" id="ablauf">
+  <div class="wrap process-grid">
+    <div class="process-sticky">
+      <p class="eyebrow"><span>05</span> Ablauf</p>
+      <h2 class="h2" data-split-lines>Transparent in <em>vier Schritten</em>.</h2>
+      <p class="process-lead">Klare Kommunikation, feste Ansprechpartner und ein Ergebnis, auf das Sie sich verlassen können.</p>
+    </div>
+    <ol class="steps" id="steps">
+      <li class="step-line" aria-hidden="true"><span id="stepFill"></span></li>
+      <li class="step"><span class="step-n">01</span><div><h3>Beratung</h3><p>Wir hören zu, analysieren Ihr Objekt und beraten Sie ehrlich zu den besten Lösungen.</p></div></li>
+      <li class="step"><span class="step-n">02</span><div><h3>Planung</h3><p>Maßgeschneidertes Konzept inklusive transparentem, kostenlosem Angebot.</p></div></li>
+      <li class="step"><span class="step-n">03</span><div><h3>Ausführung</h3><p>Saubere, fachgerechte Installation durch unser erfahrenes Team — termingerecht.</p></div></li>
+      <li class="step"><span class="step-n">04</span><div><h3>Wartung</h3><p>Einweisung, Dokumentation und Service — auch nach dem Projekt sind wir für Sie da.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ LOCATIONS ============ -->
+<section class="locs" id="standorte">
+  <div class="wrap">
+    <p class="eyebrow"><span>06</span> Standorte</p>
+    <h2 class="h2" data-split-lines>Zwei Standorte. <em>Ein Anspruch.</em></h2>
+    <div class="locs-grid">
+      <article class="loc" data-tilt>
+        <div class="loc-top"><span class="loc-status" data-open-status>—</span><span class="loc-time" data-clock>--:--</span></div>
+        <h3>München</h3>
+        <p class="loc-addr">Taulerstraße 24<br>81739 München</p>
+        <p class="loc-desc">Umfassende Elektroinstallationsdienstleistungen direkt in der Stadt und Umgebung — lokale Expertise für Ihre Projekte.</p>
+        <div class="loc-foot">
+          <span>Mo – Fr · 08:00 – 17:00</span>
+          <a href="https://maps.google.com/?q=Taulerstra%C3%9Fe+24,+81739+M%C3%BCnchen" target="_blank" rel="noopener" class="loc-go" data-magnetic aria-label="Route nach München"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        </div>
+      </article>
+      <article class="loc" data-tilt>
+        <div class="loc-top"><span class="loc-status" data-open-status>—</span><span class="loc-time" data-clock>--:--</span></div>
+        <h3>Miltach</h3>
+        <p class="loc-addr">Wilhelmstraße 2<br>93468 Miltach</p>
+        <p class="loc-desc">Ihr regionaler Partner für professionelle Elektrotechniklösungen — von hier betreuen wir das gesamte Umland.</p>
+        <div class="loc-foot">
+          <span>Mo – Fr · 08:00 – 17:00</span>
+          <a href="https://maps.google.com/?q=Wilhelmstra%C3%9Fe+2,+93468+Miltach" target="_blank" rel="noopener" class="loc-go" data-magnetic aria-label="Route nach Miltach"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta" id="kontakt">
+  <div class="cta-glow" aria-hidden="true"></div>
+  <div class="wrap cta-inner">
+    <p class="eyebrow on-dark"><span>07</span> Kontakt</p>
+    <h2 class="cta-title">
+      <span class="ln"><span class="lni">Bringen wir Ihr</span></span>
+      <span class="ln"><span class="lni">Projekt <em>ans Netz</em>.</span></span>
+    </h2>
+    <div class="cta-row">
+      <a href="mailto:info@wurmdobler-elektro.de" class="cta-orb" data-magnetic="0.5" data-cursor="Mail">
+        <span class="cta-orb-txt">Angebot<br>anfordern</span>
+        <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+      <div class="cta-contacts">
+        <a href="tel:+4917681789504" class="cta-line"><span>Telefon</span><b>+49 176 817895 04</b></a>
+        <a href="mailto:info@wurmdobler-elektro.de" class="cta-line"><span>E-Mail</span><b>info@wurmdobler-elektro.de</b></a>
+        <p class="cta-note">Kostenlos &amp; unverbindlich — wir melden uns zeitnah.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-top">
+      <div class="ftr-brand">
+        <img src="assets/logos/aw-logo.png" alt="AW Elektrotechnik" />
+        <p>Elektroinstallation aus Meisterhand — in München, Miltach und der Region.</p>
+      </div>
+      <div><h4>Leistungen</h4><ul><li><a href="#leistungen">Netzwerktechnik</a></li><li><a href="#leistungen">Sicherheitssysteme</a></li><li><a href="#leistungen">Schaltschrankbau</a></li><li><a href="#leistungen">Smart Home</a></li></ul></div>
+      <div><h4>Seiten</h4><ul><li><a href="#top">Startseite</a></li><li><a href="#ueber-uns">Über uns</a></li><li><a href="#arbeiten">Arbeiten</a></li><li><a href="#standorte">Standorte</a></li></ul></div>
+      <div><h4>Kontakt</h4><ul><li><a href="tel:+4917681789504">+49 176 817895 04</a></li><li><a href="mailto:info@wurmdobler-elektro.de">info@wurmdobler-elektro.de</a></li><li>Taulerstraße 24, 81739 München</li><li>Wilhelmstraße 2, 93468 Miltach</li></ul></div>
+    </div>
+    <div class="ftr-mega" aria-hidden="true"><span>WURMDOBLER</span></div>
+    <div class="ftr-bottom">
+      <p>© <span id="year"></span> AW Elektrotechnik · Alexander Wurmdobler</p>
+      <a href="#top" class="to-top link-roll"><span data-t="Nach oben ↑">Nach oben ↑</span></a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="premium/premium.js"></script>
+</body>
+</html>
