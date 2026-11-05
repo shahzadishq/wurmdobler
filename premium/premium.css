@@ -505,7 +505,7 @@ em { font-style: italic; font-weight: 300; }
 
 /* Brands on white */
 .brands.theme-light { border-bottom: 0; padding: 60px 0 56px; }
-.brands.theme-light .brands-row img { background: transparent; padding: 10px 24px; mix-blend-mode: multiply; opacity: .55; filter: grayscale(1); }
+.brands.theme-light .brands-row img { background: transparent; padding: 10px 24px; mix-blend-mode: multiply; opacity: .42; filter: grayscale(1); }
 .brands.theme-light .brands-row img:hover { opacity: 1; filter: none; }
 .brands.theme-light .brands-row { gap: clamp(30px, 5vw, 80px); padding-right: clamp(30px, 5vw, 80px); }
 
@@ -578,11 +578,27 @@ em { font-style: italic; font-weight: 300; }
 .theme-light .loc-go:hover { background: var(--ink); color: #fff; }
 
 /* CTA + footer patterns */
-.cta::before { content: ""; position: absolute; inset: 0; background: url("../assets/patterns/aw-pattern-grey.png") center / 1000px auto repeat; mix-blend-mode: multiply; opacity: .35; pointer-events: none;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 60%); mask-image: linear-gradient(90deg, transparent 0%, #000 60%); }
+/* CTA: red AW pattern multiplied onto the red = tone-on-tone logos, drifting slowly */
+.cta::before {
+  content: ""; position: absolute; inset: -40px; pointer-events: none;
+  background: url("../assets/patterns/aw-pattern-red.png") 0 0 / 900px auto repeat;
+  mix-blend-mode: multiply; opacity: .42;
+  -webkit-mask-image: linear-gradient(110deg, transparent 15%, #000 75%);
+          mask-image: linear-gradient(110deg, transparent 15%, #000 75%);
+  animation: patDrift 40s linear infinite;
+}
+@keyframes patDrift { to { background-position: 900px 355px; } }
 .cta-inner { position: relative; }
 .ftr { position: relative; }
-.ftr::before { content: ""; position: absolute; inset: 0; background: url("../assets/patterns/aw-pattern-red.png") center bottom / 1000px auto repeat-x; opacity: .08; pointer-events: none; }
+/* Footer: pattern only behind the big wordmark, fading upward so links stay clean */
+.ftr::before {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 520px; pointer-events: none;
+  background: url("../assets/patterns/aw-pattern-red.png") center bottom / 820px auto repeat;
+  opacity: .16;
+  -webkit-mask-image: radial-gradient(ellipse 70% 85% at 50% 100%, #000 15%, transparent 72%);
+          mask-image: radial-gradient(ellipse 70% 85% at 50% 100%, #000 15%, transparent 72%);
+}
+.ftr > .wrap { position: relative; }
 
 @media (max-width: 1240px) { .hdr-nav { gap: 24px; } }
 @media (max-width: 960px) {
@@ -603,3 +619,28 @@ em { font-style: italic; font-weight: 300; }
 }
 .ppane li.in { animation: liIn .8s var(--ease) both; animation-delay: calc(var(--i, 0) * 45ms); }
 @keyframes liIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+/* ---- AW pattern accents ---- */
+/* About (dark): faint red logos in the bottom-right corner, behind Alexander's signature area */
+.manifesto { position: relative; overflow: hidden; }
+.manifesto::before {
+  content: ""; position: absolute; right: -60px; bottom: -40px; width: 900px; height: 520px; pointer-events: none;
+  background: url("../assets/patterns/aw-pattern-red.png") right bottom / 760px auto repeat;
+  opacity: .12;
+  -webkit-mask-image: radial-gradient(ellipse at 100% 100%, #000 10%, transparent 68%);
+          mask-image: radial-gradient(ellipse at 100% 100%, #000 10%, transparent 68%);
+}
+.manifesto > .wrap { position: relative; }
+/* Stats band (paper): grey logos fading in from the right */
+.stats { overflow: hidden; }
+.stats::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+  background: url("../assets/patterns/aw-pattern-grey.png") right center / 900px auto repeat;
+  opacity: .7;
+  -webkit-mask-image: linear-gradient(90deg, transparent 35%, #000 100%);
+          mask-image: linear-gradient(90deg, transparent 35%, #000 100%);
+}
+.stats > .wrap { position: relative; }
+/* Loader red curtain + fullscreen menu: tone-on-tone pattern */
+.loader-panel.p2, .menu-bg { background-image: url("../assets/patterns/aw-pattern-red.png"); background-size: 760px auto; background-blend-mode: multiply; }
+@media (prefers-reduced-motion: reduce) { .cta::before { animation: none; } }
