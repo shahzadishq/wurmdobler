@@ -7,7 +7,7 @@
 <meta name="description" content="AW Elektrotechnik (Alexander Wurmdobler) — Elektromeisterbetrieb in München & Miltach. Netzwerk- & Sicherheitstechnik, Lichtsysteme, Schaltschrankbau, Kommunikationstechnik und Smart Home." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Alex+Brush&display=swap" rel="stylesheet" />
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" />
 <style>
 /* ===================== Tokens ===================== */
@@ -125,7 +125,78 @@ section{position:relative}
 .marq-tr span u{text-decoration:none;color:var(--red)}
 @keyframes scrollx{to{transform:translateX(-50%)}}
 
-/* ===================== Intro statement ===================== */
+/* ===================== Logo carousel ===================== */
+.logos{padding:clamp(50px,8vh,80px) 0;overflow:hidden}
+.logos-head{display:flex;align-items:center;gap:22px;margin-bottom:34px}
+.logos-head p{font-size:.76rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-dim);white-space:nowrap}
+.logos-head i{flex:1;height:1px;background:var(--line)}
+.logos-vp{position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.logos-tr{display:flex;gap:22px;width:max-content;animation:scrollx 34s linear infinite}
+.logos-vp:hover .logos-tr{animation-play-state:paused}
+.lg-card{flex:0 0 auto;width:220px;height:110px;border-radius:20px;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .4s}
+.lg-card img{max-width:140px;max-height:52px;object-fit:contain;mix-blend-mode:multiply;filter:grayscale(1);opacity:.6;transition:filter .4s,opacity .4s}
+.lg-card:hover{transform:translateY(-6px);border-color:rgba(213,51,52,.35);box-shadow:0 26px 50px -30px rgba(26,23,20,.4)}
+.lg-card:hover img{filter:none;opacity:1}
+
+/* ===================== About (split, editorial) ===================== */
+.about{padding:clamp(90px,14vh,160px) 0}
+.about-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,6vw,96px);align-items:center}
+.about-copy .h-sec{margin:16px 0 22px}
+.about-copy .lead{margin-bottom:34px}
+.about-pts{display:grid;gap:0;border-top:1px solid var(--line);margin-bottom:38px}
+.about-pt{display:grid;grid-template-columns:56px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--line);align-items:start}
+.about-pt .ic{width:46px;height:46px;border-radius:14px;background:rgba(213,51,52,.1);color:var(--red);display:grid;place-items:center;transition:background .4s,color .4s,transform .5s var(--ease)}
+.about-pt:hover .ic{background:var(--red);color:#fff;transform:rotate(-8deg) scale(1.06)}
+.about-pt .ic svg{width:22px;height:22px}
+.about-pt h4{font-weight:600;font-size:1.06rem;margin-bottom:3px}
+.about-pt p{color:var(--ink-soft);font-weight:300;font-size:.93rem}
+.about-sign{display:flex;align-items:center;gap:16px}
+.about-sign img{width:64px;height:64px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 4px var(--paper),0 0 0 6px var(--red)}
+.about-sign b{display:block;font-weight:600}
+.about-sign span{font-size:.84rem;color:var(--ink-dim)}
+.about-sign .sig{font-family:"Alex Brush",cursive;font-size:2.1rem;color:var(--red);margin-left:auto;line-height:1;transform:rotate(-4deg)}
+.about-visual{position:relative;padding:0 0 60px 40px}
+.about-frame{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/3.3;box-shadow:0 60px 100px -50px rgba(26,23,20,.55);clip-path:inset(0 0 0 0 round 28px)}
+.about-frame img{width:100%;height:100%;object-fit:cover;transform:scale(1.12)}
+.about-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,transparent 55%,rgba(26,23,20,.35))}
+.about-outline{position:absolute;left:0;top:40px;right:40px;bottom:20px;border:2px solid var(--red);border-radius:28px;z-index:-1}
+.about-inset{position:absolute;left:0;bottom:0;width:38%;aspect-ratio:1;border-radius:22px;overflow:hidden;border:6px solid var(--paper);box-shadow:0 30px 60px -30px rgba(26,23,20,.5);z-index:2}
+.about-inset img{width:100%;height:100%;object-fit:cover}
+.about-exp{position:absolute;right:-18px;top:-26px;z-index:3;background:var(--red);color:#fff;border-radius:22px;padding:20px 24px;box-shadow:0 26px 50px -20px rgba(213,51,52,.6);text-align:left}
+.about-exp b{display:block;font-size:2.6rem;font-weight:700;line-height:1;letter-spacing:-.03em}
+.about-exp span{font-size:.78rem;opacity:.9;line-height:1.3;display:block;margin-top:4px}
+.about-exp b span{font-size:inherit;opacity:1;line-height:1;display:inline;margin:0}
+.about-tag{position:absolute;right:22px;bottom:84px;z-index:3;display:flex;align-items:center;gap:10px;background:rgba(251,250,246,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:10px 16px 10px 10px;border-radius:100px;font-size:.82rem;font-weight:600;box-shadow:0 20px 40px -24px rgba(26,23,20,.5)}
+.about-tag i{width:30px;height:30px;border-radius:50%;background:var(--ink);display:grid;place-items:center}
+.about-tag i::before{content:"";width:10px;height:10px;border-radius:50%;background:#ffd36b;box-shadow:0 0 12px 3px rgba(255,211,107,.8)}
+
+/* ===================== Partner (perfekter Partner) ===================== */
+.pp{padding:clamp(80px,12vh,140px) 0;background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.pp::before{content:"";position:absolute;inset:0;background:url("assets/patterns/aw-pattern-red.png") center/900px auto repeat;opacity:.07;-webkit-mask-image:linear-gradient(180deg,#000,transparent 70%);mask-image:linear-gradient(180deg,#000,transparent 70%);pointer-events:none}
+.pp .wrap{position:relative}
+.pp-head{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:clamp(40px,7vh,70px)}
+.pp-head .h-sec{margin-top:16px}
+.pp-head .lead{color:rgba(255,255,255,.68)}
+.pp .eyebrow{color:var(--red-2)}.pp .eyebrow::before{background:var(--red-2)}
+.pp-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.pp-card{position:relative;border-radius:28px;overflow:hidden;background:#24201c;border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;transition:transform .6s var(--ease),border-color .4s}
+.pp-card:hover{transform:translateY(-8px);border-color:rgba(255,90,70,.45)}
+.pp-media{position:relative;height:280px;overflow:hidden}
+.pp-media img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 1.2s var(--ease)}
+.pp-card:hover .pp-media img{transform:scale(1)}
+.pp-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(36,32,28,0) 40%,#24201c)}
+.pp-media .lbl{position:absolute;left:24px;top:22px;z-index:2;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;background:var(--red);padding:7px 14px;border-radius:100px}
+.pp-body{padding:0 clamp(24px,3vw,40px) clamp(28px,3vw,40px);margin-top:-46px;position:relative;z-index:2;display:flex;flex-direction:column;flex:1}
+.pp-body h3{font-weight:700;font-size:clamp(1.6rem,2.6vw,2.2rem);letter-spacing:-.02em;margin-bottom:20px}
+.pp-list{display:grid;gap:0;margin-bottom:28px}
+.pp-list li{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.82);font-size:.94rem;font-weight:300;transition:padding .4s var(--ease),color .3s}
+.pp-list li:hover{padding-left:8px;color:#fff}
+.pp-list svg{flex:0 0 auto;width:16px;height:16px;margin-top:3px;fill:var(--red-2)}
+.pp-body .btn{margin-top:auto;align-self:flex-start}
+.btn-light{background:#fff;color:var(--ink)}
+.btn-light:hover{background:var(--red);color:#fff;transform:translateY(-2px)}
+.btn-light:hover svg{transform:translateX(4px)}
+
 .intro{padding:clamp(90px,15vh,170px) 0}
 .intro .big{font-weight:300;font-size:clamp(1.5rem,3.6vw,3rem);line-height:1.28;letter-spacing:-.02em;max-width:17ch}
 .intro .big b{font-weight:600}
@@ -212,7 +283,7 @@ section{position:relative}
 /* ===================== Footer ===================== */
 .ft{border-top:1px solid var(--line);padding:70px 0 34px}
 .ft-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:46px}
-.ft-brand .logo-anim>img{width:92px}
+.ft-brand .brand{display:inline-flex}
 .ft-brand p{color:var(--ink-soft);font-weight:300;font-size:.94rem;margin-top:18px;max-width:32ch}
 .ft h5{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:18px}
 .ft ul{display:grid;gap:11px}
@@ -241,6 +312,8 @@ section{position:relative}
   .wk.big{grid-column:span 2;grid-row:span 1}
   .proc-grid,.stats-grid{grid-template-columns:repeat(2,1fr)}
   .ft-top{grid-template-columns:1fr 1fr}
+  .about-grid,.pp-head,.pp-grid{grid-template-columns:1fr}
+  .about-visual{max-width:640px}
 }
 @media(max-width:720px){
   .nav,.hd-cta .btn{display:none}
@@ -251,6 +324,12 @@ section{position:relative}
   .wk.big,.wk.wide,.wk.tall{grid-column:span 1;grid-row:span 1}
   .work-grid{grid-auto-rows:240px}
   .hero-float,.hero-badge{display:none}
+  .about-visual{padding:0 0 46px 18px}
+  .about-exp{right:-6px;top:-18px;padding:14px 18px}.about-exp b{font-size:2rem}
+  .about-tag{display:none}
+  .about-sign .sig{display:none}
+  .lg-card{width:170px;height:90px}
+  .pp-media{height:220px}
 }
 </style>
 </head>
@@ -276,6 +355,7 @@ section{position:relative}
     <nav class="nav">
       <a href="#leistungen">Leistungen</a>
       <a href="#ueber">Über uns</a>
+      <a href="#partner">Partner</a>
       <a href="#arbeiten">Arbeiten</a>
       <a href="#standorte">Standorte</a>
     </nav>
@@ -289,6 +369,7 @@ section{position:relative}
 <div class="mm" id="mm">
   <a href="#leistungen">Leistungen</a>
   <a href="#ueber">Über uns</a>
+  <a href="#partner">Partner</a>
   <a href="#arbeiten">Arbeiten</a>
   <a href="#standorte">Standorte</a>
   <a href="mailto:info@wurmdobler-elektro.de" style="color:var(--red)">Angebot anfordern →</a>
@@ -337,14 +418,38 @@ section{position:relative}
   </div>
 </div>
 
-<!-- Intro -->
-<section class="intro" id="ueber">
-  <div class="wrap">
-    <span class="eyebrow rv">Über uns</span>
-    <p class="big" data-words style="margin-top:22px">AW Elektrotechnik unter Leitung von Elektromeister Alexander Wurmdobler ist Ihr zuverlässiger Partner für private und kommerzielle Projekte — sicher, sauber und auf den Punkt.</p>
-    <div class="intro-foot rv">
-      <img src="assets/photos/team.png" alt="" />
-      <div><b>Alexander Wurmdobler</b><span>Elektromeister &amp; Inhaber</span></div>
+<!-- Logo carousel -->
+<section class="logos" aria-label="Partnermarken">
+  <div class="wrap logos-head"><p>Unsere Qualitätspartner</p><i></i></div>
+  <div class="logos-vp">
+    <div class="logos-tr"><div class="lg-card"><img src="assets/logos/hager.png" alt="Hager" /></div><div class="lg-card"><img src="assets/logos/siemens.png" alt="Siemens" /></div><div class="lg-card"><img src="assets/logos/slv.png" alt="SLV" /></div><div class="lg-card"><img src="assets/logos/alfa.png" alt="KNX" /></div><div class="lg-card"><img src="assets/logos/hager.png" alt="Hager" /></div><div class="lg-card"><img src="assets/logos/siemens.png" alt="Siemens" /></div><div class="lg-card"><img src="assets/logos/slv.png" alt="SLV" /></div><div class="lg-card"><img src="assets/logos/alfa.png" alt="KNX" /></div><div class="lg-card" aria-hidden="true"><img src="assets/logos/hager.png" alt="" /></div><div class="lg-card" aria-hidden="true"><img src="assets/logos/hager.png" alt="" /></div><div class="lg-card" aria-hidden="true"><img src="assets/logos/siemens.png" alt="" /></div><div class="lg-card" aria-hidden="true"><img src="assets/logos/slv.png" alt="" /></div><div class="lg-card" aria-hidden="true"><img src="assets/logos/alfa.png" alt="" /></div><div class="lg-card" aria-hidden="true"><img src="assets/logos/hager.png" alt="" /></div><div class="lg-card" aria-hidden="true"><img src="assets/logos/siemens.png" alt="" /></div><div class="lg-card" aria-hidden="true"><img src="assets/logos/slv.png" alt="" /></div><div class="lg-card" aria-hidden="true"><img src="assets/logos/alfa.png" alt="" /></div><div class="lg-card" aria-hidden="true"><img src="assets/logos/hager.png" alt="" /></div></div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about" id="ueber">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <span class="eyebrow rv">Über uns</span>
+      <h2 class="h-sec rv">Hervorragende Dienstleistungen für <span class="lt">Privat &amp; Unternehmen</span>.</h2>
+      <p class="lead rv">AW Elektrotechnik unter Leitung von Elektromeister Alexander Wurmdobler ist Ihr zuverlässiger Partner für private und kommerzielle Projekte in München und der Region — sicher, sauber und auf den Punkt.</p>
+      <div class="about-pts">
+        <div class="about-pt rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></span><div><h4>Meisterbetrieb mit System</h4><p>Fachgerechte Planung, saubere Ausführung und zuverlässige Dokumentation.</p></div></div>
+        <div class="about-pt rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></span><div><h4>Licht &amp; Atmosphäre</h4><p>Durchdachte Lichtkonzepte — von der LED-Vitrine bis zur Designerleuchte.</p></div></div>
+        <div class="about-pt rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></span><div><h4>Privat &amp; kommerziell</h4><p>Vom Einfamilienhaus bis zum Gewerbeobjekt — alles aus einer Hand.</p></div></div>
+      </div>
+      <div class="about-sign rv">
+        <img src="assets/photos/alexander.png" alt="Elektromeister Alexander Wurmdobler" />
+        <div><b>Alexander Wurmdobler</b><span>Elektromeister &amp; Inhaber</span></div>
+        <span class="sig" aria-hidden="true">A. Wurmdobler</span>
+      </div>
+    </div>
+    <div class="about-visual rv">
+      <span class="about-outline" aria-hidden="true"></span>
+      <div class="about-frame"><img id="aboutImg" src="assets/photos/wohnwand-licht.jpg" alt="Wohnbereich mit LED-beleuchteter Wohnwand und geschwungener Designer-Pendelleuchte" loading="lazy" /></div>
+      <div class="about-inset"><img src="assets/photos/work4.jpeg" alt="LED-Stufenbeleuchtung im Treppenhaus" loading="lazy" /></div>
+      <div class="about-exp"><b><span data-count="15" data-suf="+">0</span></b><span>Jahre<br>Erfahrung</span></div>
+      <div class="about-tag" aria-hidden="true"><i></i>Lichtkonzept · Wohnraum</div>
     </div>
   </div>
 </section>
@@ -386,6 +491,29 @@ section{position:relative}
       <div class="svc-media rv"><span class="num">07</span><img src="assets/photos/work3.jpeg" alt="Smart Home Systeme" loading="lazy" /></div>
       <div class="svc-body rv"><h3>Smart Home Systeme</h3><p>Intelligente Gebäudesteuerung über KNX — Jalousien, Temperatur, Licht und Szenen zentral und automatisiert steuern. Ihr smartes Zuhause.</p><div class="svc-tags"><span>KNX</span><span>Automation</span><span>Komfort</span></div></div>
     </article>
+  </div>
+</section>
+
+<!-- Der perfekte Partner -->
+<section class="pp" id="partner">
+  <div class="wrap">
+    <div class="pp-head">
+      <div>
+        <span class="eyebrow rv">AW Elektrotechnik</span>
+        <h2 class="h-sec rv">Der perfekte Partner für Ihr <span class="lt">Vorhaben</span>.</h2>
+      </div>
+      <p class="lead rv">AW Elektrotechnik bietet eine breite Palette von Dienstleistungen an, um Ihre Anforderungen im Bereich der Elektrotechnik zu erfüllen. Egal, ob Sie eine neue Installation planen oder eine Reparatur oder Wartung benötigen — wir sind für Sie da.</p>
+    </div>
+    <div class="pp-grid">
+      <article class="pp-card rv">
+        <div class="pp-media"><span class="lbl">Gewerbe</span><img src="assets/photos/restaurant.jpg" alt="Gastronomie mit Lichtkonzept" loading="lazy" /></div>
+        <div class="pp-body"><h3>Kommerzieller Dienst</h3><ul class="pp-list"><li><svg viewBox="0 0 32 32"><path d="M26.9 15.7c-.1-.4-.5-.7-.9-.7h-6l3.9-11.7c.1-.4 0-.9-.4-1.1-.4-.3-.8-.2-1.2 0l-17 13c-.3.3-.5.7-.3 1.1.2.4.6.7 1 .7h6L8.1 28.7c-.1.4 0 .9.4 1.1.1.1.3.2.5.2s.4-.1.6-.2l17-13c.3-.3.5-.7.3-1.1z"/></svg>Erstellen von Netzwerkinfrastruktur</li><li><svg viewBox="0 0 32 32"><path d="M26.9 15.7c-.1-.4-.5-.7-.9-.7h-6l3.9-11.7c.1-.4 0-.9-.4-1.1-.4-.3-.8-.2-1.2 0l-17 13c-.3.3-.5.7-.3 1.1.2.4.6.7 1 .7h6L8.1 28.7c-.1.4 0 .9.4 1.1.1.1.3.2.5.2s.4-.1.6-.2l17-13c.3-.3.5-.7.3-1.1z"/></svg>Installation von Innen- und Außenbeleuchtung</li><li><svg viewBox="0 0 32 32"><path d="M26.9 15.7c-.1-.4-.5-.7-.9-.7h-6l3.9-11.7c.1-.4 0-.9-.4-1.1-.4-.3-.8-.2-1.2 0l-17 13c-.3.3-.5.7-.3 1.1.2.4.6.7 1 .7h6L8.1 28.7c-.1.4 0 .9.4 1.1.1.1.3.2.5.2s.4-.1.6-.2l17-13c.3-.3.5-.7.3-1.1z"/></svg>Installation von E-Ladepunkten und deren Anmeldung</li><li><svg viewBox="0 0 32 32"><path d="M26.9 15.7c-.1-.4-.5-.7-.9-.7h-6l3.9-11.7c.1-.4 0-.9-.4-1.1-.4-.3-.8-.2-1.2 0l-17 13c-.3.3-.5.7-.3 1.1.2.4.6.7 1 .7h6L8.1 28.7c-.1.4 0 .9.4 1.1.1.1.3.2.5.2s.4-.1.6-.2l17-13c.3-.3.5-.7.3-1.1z"/></svg>E-Check der elektrischen Anlage und deren Geräte</li><li><svg viewBox="0 0 32 32"><path d="M26.9 15.7c-.1-.4-.5-.7-.9-.7h-6l3.9-11.7c.1-.4 0-.9-.4-1.1-.4-.3-.8-.2-1.2 0l-17 13c-.3.3-.5.7-.3 1.1.2.4.6.7 1 .7h6L8.1 28.7c-.1.4 0 .9.4 1.1.1.1.3.2.5.2s.4-.1.6-.2l17-13c.3-.3.5-.7.3-1.1z"/></svg>Erstellen von Potentialausgleichen</li><li><svg viewBox="0 0 32 32"><path d="M26.9 15.7c-.1-.4-.5-.7-.9-.7h-6l3.9-11.7c.1-.4 0-.9-.4-1.1-.4-.3-.8-.2-1.2 0l-17 13c-.3.3-.5.7-.3 1.1.2.4.6.7 1 .7h6L8.1 28.7c-.1.4 0 .9.4 1.1.1.1.3.2.5.2s.4-.1.6-.2l17-13c.3-.3.5-.7.3-1.1z"/></svg>Renovierung oder Neuinstallation der elektrischen Anlage</li><li><svg viewBox="0 0 32 32"><path d="M26.9 15.7c-.1-.4-.5-.7-.9-.7h-6l3.9-11.7c.1-.4 0-.9-.4-1.1-.4-.3-.8-.2-1.2 0l-17 13c-.3.3-.5.7-.3 1.1.2.4.6.7 1 .7h6L8.1 28.7c-.1.4 0 .9.4 1.1.1.1.3.2.5.2s.4-.1.6-.2l17-13c.3-.3.5-.7.3-1.1z"/></svg>Erstellen von Überspannungsschutz</li><li><svg viewBox="0 0 32 32"><path d="M26.9 15.7c-.1-.4-.5-.7-.9-.7h-6l3.9-11.7c.1-.4 0-.9-.4-1.1-.4-.3-.8-.2-1.2 0l-17 13c-.3.3-.5.7-.3 1.1.2.4.6.7 1 .7h6L8.1 28.7c-.1.4 0 .9.4 1.1.1.1.3.2.5.2s.4-.1.6-.2l17-13c.3-.3.5-.7.3-1.1z"/></svg>Erstellen von intelligenten Bussystemen (KNX)</li></ul><a href="mailto:info@wurmdobler-elektro.de" class="btn btn-light" data-mag>Mehr erfahren<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </article>
+      <article class="pp-card rv">
+        <div class="pp-media"><span class="lbl">Privat</span><img src="assets/photos/night-house.jpg" alt="Wohnhaus mit Außenbeleuchtung" loading="lazy" /></div>
+        <div class="pp-body"><h3>Service für Haushalte</h3><ul class="pp-list"><li><svg viewBox="0 0 32 32"><path d="M26.9 15.7c-.1-.4-.5-.7-.9-.7h-6l3.9-11.7c.1-.4 0-.9-.4-1.1-.4-.3-.8-.2-1.2 0l-17 13c-.3.3-.5.7-.3 1.1.2.4.6.7 1 .7h6L8.1 28.7c-.1.4 0 .9.4 1.1.1.1.3.2.5.2s.4-.1.6-.2l17-13c.3-.3.5-.7.3-1.1z"/></svg>Lieferung und Installation von Lichtsystemen</li><li><svg viewBox="0 0 32 32"><path d="M26.9 15.7c-.1-.4-.5-.7-.9-.7h-6l3.9-11.7c.1-.4 0-.9-.4-1.1-.4-.3-.8-.2-1.2 0l-17 13c-.3.3-.5.7-.3 1.1.2.4.6.7 1 .7h6L8.1 28.7c-.1.4 0 .9.4 1.1.1.1.3.2.5.2s.4-.1.6-.2l17-13c.3-.3.5-.7.3-1.1z"/></svg>Austausch von Elektrogeräten</li><li><svg viewBox="0 0 32 32"><path d="M26.9 15.7c-.1-.4-.5-.7-.9-.7h-6l3.9-11.7c.1-.4 0-.9-.4-1.1-.4-.3-.8-.2-1.2 0l-17 13c-.3.3-.5.7-.3 1.1.2.4.6.7 1 .7h6L8.1 28.7c-.1.4 0 .9.4 1.1.1.1.3.2.5.2s.4-.1.6-.2l17-13c.3-.3.5-.7.3-1.1z"/></svg>Renovierung von Schaltschränken &amp; Zählerschränken</li><li><svg viewBox="0 0 32 32"><path d="M26.9 15.7c-.1-.4-.5-.7-.9-.7h-6l3.9-11.7c.1-.4 0-.9-.4-1.1-.4-.3-.8-.2-1.2 0l-17 13c-.3.3-.5.7-.3 1.1.2.4.6.7 1 .7h6L8.1 28.7c-.1.4 0 .9.4 1.1.1.1.3.2.5.2s.4-.1.6-.2l17-13c.3-.3.5-.7.3-1.1z"/></svg>Alarm-, Video- &amp; Brandmeldeanlagen</li><li><svg viewBox="0 0 32 32"><path d="M26.9 15.7c-.1-.4-.5-.7-.9-.7h-6l3.9-11.7c.1-.4 0-.9-.4-1.1-.4-.3-.8-.2-1.2 0l-17 13c-.3.3-.5.7-.3 1.1.2.4.6.7 1 .7h6L8.1 28.7c-.1.4 0 .9.4 1.1.1.1.3.2.5.2s.4-.1.6-.2l17-13c.3-.3.5-.7.3-1.1z"/></svg>Audio- &amp; Videosprechanlagen</li><li><svg viewBox="0 0 32 32"><path d="M26.9 15.7c-.1-.4-.5-.7-.9-.7h-6l3.9-11.7c.1-.4 0-.9-.4-1.1-.4-.3-.8-.2-1.2 0l-17 13c-.3.3-.5.7-.3 1.1.2.4.6.7 1 .7h6L8.1 28.7c-.1.4 0 .9.4 1.1.1.1.3.2.5.2s.4-.1.6-.2l17-13c.3-.3.5-.7.3-1.1z"/></svg>Smart-Home-Steuerungen</li><li><svg viewBox="0 0 32 32"><path d="M26.9 15.7c-.1-.4-.5-.7-.9-.7h-6l3.9-11.7c.1-.4 0-.9-.4-1.1-.4-.3-.8-.2-1.2 0l-17 13c-.3.3-.5.7-.3 1.1.2.4.6.7 1 .7h6L8.1 28.7c-.1.4 0 .9.4 1.1.1.1.3.2.5.2s.4-.1.6-.2l17-13c.3-.3.5-.7.3-1.1z"/></svg>Errichten eines stabilen Netzwerks für Ihr Zuhause</li></ul><a href="mailto:info@wurmdobler-elektro.de" class="btn btn-red" data-mag>Mehr erfahren<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -488,7 +616,10 @@ section{position:relative}
   <div class="wrap">
     <div class="ft-top">
       <div class="ft-brand">
-        <span class="logo-anim"><img src="assets/logos/aw-logo.png" alt="AW Elektrotechnik" /><img class="spark" src="assets/img/electricity.gif" alt="" aria-hidden="true" /></span>
+        <a href="#top" class="brand" aria-label="AW Elektrotechnik">
+          <span class="logo-anim"><img src="assets/logos/aw-logo.png" alt="AW Elektrotechnik" /><img class="spark" src="assets/img/electricity.gif" alt="" aria-hidden="true" /></span>
+          <span><b>AW&nbsp;Elektrotechnik</b><small>Alexander Wurmdobler</small></span>
+        </a>
         <p>Elektroinstallation aus Meisterhand — in München, Miltach und der Region.</p>
       </div>
       <div><h5>Leistungen</h5><ul><li><a href="#leistungen">Netzwerktechnik</a></li><li><a href="#leistungen">Sicherheitssysteme</a></li><li><a href="#leistungen">Schaltschrankbau</a></li><li><a href="#leistungen">Smart Home</a></li></ul></div>
@@ -586,6 +717,14 @@ section{position:relative}
       if(words.length){
         gsap.to(words,{opacity:1,color:"#1a1714",stagger:.04,ease:"none",scrollTrigger:{trigger:"[data-words]",start:"top 78%",end:"bottom 60%",scrub:true}});
       }
+      /* about: image wipe-in + parallax, inset float */
+      gsap.fromTo(".about-frame",{clipPath:"inset(0 0 100% 0 round 28px)"},{clipPath:"inset(0 0 0% 0 round 28px)",duration:1.5,ease:"expo.inOut",scrollTrigger:{trigger:".about-visual",start:"top 78%"}});
+      gsap.fromTo("#aboutImg",{yPercent:-6},{yPercent:6,ease:"none",scrollTrigger:{trigger:".about-visual",start:"top bottom",end:"bottom top",scrub:true}});
+      gsap.fromTo(".about-inset",{y:60},{y:-30,ease:"none",scrollTrigger:{trigger:".about-visual",start:"top bottom",end:"bottom top",scrub:true}});
+      gsap.from(".about-outline",{x:-30,y:30,opacity:0,duration:1.4,ease:"expo.out",delay:.4,scrollTrigger:{trigger:".about-visual",start:"top 78%"}});
+      gsap.from(".about-exp",{scale:.4,rotate:-12,opacity:0,duration:1.2,ease:"back.out(1.6)",delay:.7,scrollTrigger:{trigger:".about-visual",start:"top 78%"}});
+      /* partner list stagger */
+      $$(".pp-card").forEach(function(c){ gsap.from(c.querySelectorAll(".pp-list li"),{x:-20,opacity:0,duration:.7,ease:"expo.out",stagger:.05,scrollTrigger:{trigger:c,start:"top 70%"}}); });
       /* process steps light up */
       $$(".step").forEach(function(s){ScrollTrigger.create({trigger:s,start:"top 80%",once:true,onEnter:function(){s.classList.add("lit");}});});
     } else {
