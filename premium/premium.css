@@ -116,6 +116,12 @@ em { font-style: italic; font-weight: 300; }
 .hdr-brand img { width: 46px; }
 .hdr-brand span { font-weight: 600; font-size: .95rem; letter-spacing: .02em; line-height: 1.1; display: flex; flex-direction: column; }
 .hdr-brand small { font-weight: 400; font-size: .68rem; color: var(--dim); letter-spacing: .1em; text-transform: uppercase; margin-top: 3px; }
+
+/* Animated logo — electricity GIF in the AW gap */
+.logo-anim { position: relative; display: inline-block; line-height: 0; }
+.logo-anim > img { display: block; position: relative; z-index: 1; }
+.logo-anim .logo-spark { position: absolute; top: 84%; left: 38.5%; transform: translate(-50%, -50%); height: 70%; width: auto; z-index: 2; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .logo-anim .logo-spark { display: none; } }
 .hdr-nav { display: flex; gap: 34px; font-size: .88rem; font-weight: 500; }
 .hdr-right { display: flex; align-items: center; gap: 20px; }
 .hdr-phone { display: flex; align-items: center; gap: 10px; font-size: .84rem; color: var(--soft); transition: color .3s; }

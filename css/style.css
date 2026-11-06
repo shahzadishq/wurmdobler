@@ -139,8 +139,8 @@ section { position: relative; padding: clamp(80px, 12vh, 150px) 0; }
 .logo-anim { position: relative; display: inline-block; line-height: 0; }
 .logo-anim > img { display: block; position: relative; z-index: 1; }
 .logo-anim .logo-spark {
-  position: absolute; top: 50%; left: 46.5%; transform: translate(-50%, -50%);
-  height: 86%; width: auto; z-index: 2; pointer-events: none;
+  position: absolute; top: 84%; left: 38.5%; transform: translate(-50%, -50%);
+  height: 70%; width: auto; z-index: 2; pointer-events: none;
 }
 @media (prefers-reduced-motion: reduce) { .logo-anim .logo-spark { display: none; } }
 
