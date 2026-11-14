@@ -742,3 +742,16 @@ em { font-style: italic; font-weight: 300; }
 
 .ftr .ftr-word { color: var(--ink); }
 .ftr .ftr-word small { color: rgba(22, 23, 28, .5); }
+
+/* No rounded corners on the light section backgrounds */
+.services, .stats, .light-block, .locs.theme-light, .brands.theme-light { border-radius: 0 !important; }
+.light-block { margin-top: 0; }
+
+/* Loader: AW icon with the electricity GIF */
+.loader-inner .logo-anim { margin-bottom: 34px; }
+.loader-inner .logo-anim > .loader-logo { margin-bottom: 0; }
+
+/* Footer with 5 columns (Leistungen · Seiten · Rechtliches · Kontakt) */
+.ftr-top.ftr-top-5 { grid-template-columns: 1.5fr 1fr 1fr 1fr 1.3fr; gap: 36px; }
+@media (max-width: 1240px) { .ftr-top.ftr-top-5 { grid-template-columns: 1fr 1fr 1fr; } .ftr-top.ftr-top-5 .ftr-brand { grid-column: 1 / -1; } }
+@media (max-width: 640px) { .ftr-top.ftr-top-5 { grid-template-columns: 1fr 1fr; } }
