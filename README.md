@@ -20,9 +20,16 @@ A premium, animated redesign of [wurmdobler-elektro.de](https://wurmdobler-elekt
 - **Zero build step** — plain HTML/CSS/JS. Service icons are crisp inline SVG; all photography is served
   locally from `assets/`. Only Google Fonts is fetched externally.
 
-## Version 2 — `premium.html`
+## Site structure (live)
 
-A second, fully separate concept page: **https://shahzadishq.github.io/wurmdobler/premium.html**
+- **Startseite:** `index.html` → https://shahzadishq.github.io/wurmdobler/ (the premium design; `premium.html` now redirects here)
+- **Subpages** (same URL slugs as the WordPress site): `/uber-uns/`, `/unsere-dienstleistungen/`, `/kontakt/`, `/faq/`,
+  `/impressum/`, `/agb/`, `/datenschutz/`, `/widerrufsbelehrung/` — shared styles in `premium/pages.css`, script in `premium/pages.js`
+- **Classic version** (the first concept, kept for reference): `classic.html`
+
+## Version 2 — premium design (now the homepage)
+
+The premium design: **https://shahzadishq.github.io/wurmdobler/**
 
 Dark, cinematic design on the same brand (Poppins, red `#D53334`, slate `#303442`, original photos and logos).
 Plain HTML/CSS/JS with [GSAP](https://gsap.com) + ScrollTrigger and [Lenis](https://lenis.darkroom.engineering) smooth scrolling (loaded from a CDN):
@@ -48,7 +55,7 @@ premium/premium.js
 Plain HTML + CSS + vanilla JS. No framework, no bundler.
 
 ```
-index.html          # markup + inline SVG
+classic.html        # first concept: markup + inline SVG
 css/style.css        # design system + components + responsive
 js/main.js           # animations & interactions (IntersectionObserver, rAF)
 ```
