@@ -755,3 +755,10 @@ em { font-style: italic; font-weight: 300; }
 .ftr-top.ftr-top-5 { grid-template-columns: 1.5fr 1fr 1fr 1fr 1.3fr; gap: 36px; }
 @media (max-width: 1240px) { .ftr-top.ftr-top-5 { grid-template-columns: 1fr 1fr 1fr; } .ftr-top.ftr-top-5 .ftr-brand { grid-column: 1 / -1; } }
 @media (max-width: 640px) { .ftr-top.ftr-top-5 { grid-template-columns: 1fr 1fr; } }
+
+/* Menu with longer labels ("Unsere Dienstleistungen") */
+.menu-links a { font-size: clamp(1.9rem, 7.6vw, 4.4rem); }
+.menu-links a span { min-width: 0; }
+.menu-brand { display: none !important; }
+.menu-open .hdr-brand .logo-anim > img:first-child { filter: brightness(0) invert(1); transition: filter .4s; }
+@media (max-width: 1360px) { .hdr-nav { gap: 24px; } .hdr-phone { display: none; } }
