@@ -119,7 +119,7 @@
       <defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs>
       <text><textPath href="#circ">MEISTERBETRIEB • MÜNCHEN • MILTACH • SEIT ÜBER 15 JAHREN • </textPath></text>
     </svg>
-    <img src="assets/logos/aw-logo.png" alt="" />
+    <span class="logo-anim"><img src="assets/logos/aw-logo.png" alt="" /><img class="logo-spark" src="assets/img/electricity.gif" alt="" /></span>
   </div>
 
   <div class="hero-scroll" data-hero-fade aria-hidden="true">
@@ -134,7 +134,7 @@
 </section>
 
 <!-- ============ BRANDS ============ -->
-<section class="brands" aria-label="Partnermarken">
+<section class="brands theme-light" aria-label="Partnermarken">
   <p class="brands-label">Wir arbeiten ausschließlich mit Qualitätsmarken</p>
   <div class="brands-track">
     <div class="brands-row">
@@ -303,7 +303,7 @@
 </section>
 
 <!-- ============ LIGHT THEME BLOCK ============ -->
-<div class="light-block">
+<div class="theme-light light-block">
 
 <!-- ============ PARTNER ============ -->
 <section class="partner" id="partner">
@@ -412,7 +412,7 @@
 </section>
 
 <!-- ============ LOCATIONS ============ -->
-<section class="locs" id="standorte">
+<section class="locs theme-light" id="standorte">
   <div class="wrap">
     <p class="eyebrow"><span>07</span> Standorte</p>
     <h2 class="h2" data-split-lines>Zwei Standorte. <em>Ein Anspruch.</em></h2>
@@ -471,7 +471,7 @@
       <span class="ln"><span class="lni">Projekt <em>ans Netz</em>.</span></span>
     </h2>
     <div class="cta-row">
-      <a href="#anfrage" class="cta-orb" data-magnetic="0.5" data-cursor="Anfrage">
+      <a href="mailto:info@wurmdobler-elektro.de" class="cta-orb" data-magnetic="0.5" data-cursor="Mail">
         <span class="cta-orb-txt">Angebot<br>anfordern</span>
         <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
       </a>
@@ -482,31 +482,6 @@
         <p class="cta-note cta-hours">Mo – Fr 08:00 – 17:00 Uhr · Telefonisch am besten Do &amp; Fr, 10:00 – 15:00 Uhr</p>
       </div>
     </div>
-    <form class="cta-form" id="anfrage" novalidate>
-      <h3>Angebot anfordern</h3>
-      <div class="cf-grid">
-        <label><span>Name *</span><input type="text" name="name" required autocomplete="name" /></label>
-        <label><span>Telefon</span><input type="tel" name="telefon" autocomplete="tel" /></label>
-        <label><span>E-Mail *</span><input type="email" name="email" required autocomplete="email" /></label>
-        <label><span>Leistung</span>
-          <select name="leistung">
-            <option>Allgemeine Anfrage</option>
-            <option>Netzwerktechnik</option>
-            <option>Sicherheitssysteme</option>
-            <option>Kommunikationstechnik</option>
-            <option>Schaltschrankbau</option>
-            <option>Lichtsysteme</option>
-            <option>Smart Home / KNX</option>
-            <option>E-Ladepunkt / E-Check</option>
-          </select>
-        </label>
-        <label class="cf-full"><span>Ihre Nachricht *</span><textarea name="nachricht" rows="4" required></textarea></label>
-      </div>
-      <div class="cf-foot">
-        <button type="submit" class="btn-pill is-light"><span>Anfrage senden</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
-        <p class="cf-msg" role="status" aria-live="polite"></p>
-      </div>
-    </form>
   </div>
 </section>
 
