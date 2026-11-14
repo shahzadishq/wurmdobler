@@ -79,15 +79,13 @@
   })();
 
   /* ---------- Location card glow + tilt ---------- */
-  document.querySelectorAll("[data-tilt]").forEach(function (card) {
+  document.querySelectorAll(".loc").forEach(function (card) {
     card.addEventListener("pointermove", function (e) {
       var r = card.getBoundingClientRect();
       var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
       card.style.setProperty("--gx", px * 100 + "%");
       card.style.setProperty("--gy", py * 100 + "%");
-      if (fine && !reduce) card.style.transform = "perspective(1000px) rotateX(" + (0.5 - py) * 6 + "deg) rotateY(" + (px - 0.5) * 8 + "deg)";
     });
-    card.addEventListener("pointerleave", function () { card.style.transform = ""; });
   });
 
   /* ---------- Big button fill origin ---------- */
@@ -178,8 +176,10 @@
       var target = id === "#" || id === "#top" ? 0 : document.querySelector(id);
       if (target === null) return;
       e.preventDefault();
-      if (lenis) lenis.scrollTo(target, { offset: 0, duration: 1.6 });
-      else window.scrollTo({ top: target === 0 ? 0 : target.getBoundingClientRect().top + window.scrollY, behavior: reduce ? "auto" : "smooth" });
+      var off = (target && target.id === "anfrage") ? -100 : 0;
+      if (lenis) lenis.scrollTo(target, { offset: off, duration: 1.6 });
+      else window.scrollTo({ top: target === 0 ? 0 : target.getBoundingClientRect().top + window.scrollY + off, behavior: reduce ? "auto" : "smooth" });
+      if (target && target.id === "anfrage") setTimeout(function () { var f = target.querySelector("input"); if (f) f.focus({ preventScroll: true }); }, 1700);
     });
   });
 
@@ -413,4 +413,50 @@
   }
 
   window.addEventListener("load", function () { ST.refresh(); });
+})();
+
+/* ---------- Contact form (opens the visitor's mail program with a prepared e-mail) + mail fallback ---------- */
+(function () {
+  var MAIL = "info@wurmdobler-elektro.de";
+  var toastEl;
+  function toast(msg) {
+    if (!toastEl) { toastEl = document.createElement("div"); toastEl.className = "aw-toast"; toastEl.setAttribute("role", "status"); document.body.appendChild(toastEl); }
+    toastEl.textContent = msg; toastEl.classList.add("show");
+    clearTimeout(toastEl._t); toastEl._t = setTimeout(function () { toastEl.classList.remove("show"); }, 4200);
+  }
+  function copy(text) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    var t = document.createElement("textarea"); t.value = text; t.style.position = "fixed"; t.style.opacity = "0";
+    document.body.appendChild(t); t.select(); try { document.execCommand("copy"); } catch (e) {} t.remove();
+    return Promise.resolve();
+  }
+  /* mailto links: open mail program, and also copy the address so it works without a mail app */
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) {
+    a.addEventListener("click", function () {
+      copy(MAIL).then(function () { toast("E-Mail-Adresse kopiert: " + MAIL); }, function () {});
+    });
+  });
+
+  var form = document.getElementById("anfrage");
+  if (!form) return;
+  var msg = form.querySelector(".cf-msg");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var ok = true;
+    form.querySelectorAll("[required]").forEach(function (f) {
+      var bad = !f.value.trim() || (f.type === "email" && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.value.trim()));
+      f.classList.toggle("is-invalid", bad); if (bad) ok = false;
+    });
+    if (!ok) { msg.className = "cf-msg err"; msg.textContent = "Bitte füllen Sie die markierten Felder aus."; return; }
+    var d = new FormData(form);
+    var subject = "Anfrage über die Website – " + d.get("leistung");
+    var body = "Name: " + d.get("name") + "\nE-Mail: " + d.get("email") + "\nTelefon: " + (d.get("telefon") || "–") +
+      "\nLeistung: " + d.get("leistung") + "\n\nNachricht:\n" + d.get("nachricht");
+    window.location.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    msg.className = "cf-msg ok";
+    msg.textContent = "Ihr E-Mail-Programm öffnet sich mit der vorbereiteten Anfrage. Falls nicht, schreiben Sie uns bitte direkt an " + MAIL + ".";
+  });
+  form.querySelectorAll("input, textarea").forEach(function (f) {
+    f.addEventListener("input", function () { f.classList.remove("is-invalid"); });
+  });
 })();
