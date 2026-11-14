@@ -764,48 +764,54 @@ em { font-style: italic; font-weight: 300; }
 @media (max-width: 1360px) { .hdr-nav { gap: 24px; } .hdr-phone { display: none; } }
 
 /* ============================================================
-   "Angebot anfordern" popup (header CTA)
+   "Angebot anfordern" popup (header CTA) — white, compact (no scrolling)
    ============================================================ */
 html.pop-lock, html.pop-lock body { overflow: hidden; }
 .pop { position: fixed; inset: 0; z-index: 400; display: grid; place-items: center; padding: 20px; visibility: hidden; pointer-events: none; }
 .pop.is-open { visibility: visible; pointer-events: auto; }
-.pop-backdrop { position: absolute; inset: 0; background: rgba(8,9,12,.72); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); opacity: 0; transition: opacity .5s var(--ease); }
+.pop-backdrop { position: absolute; inset: 0; background: rgba(12,13,17,.6); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); opacity: 0; transition: opacity .5s var(--ease); }
 .pop.is-open .pop-backdrop { opacity: 1; }
-.pop-box { position: relative; width: min(640px, 100%); max-height: calc(100vh - 40px); max-height: calc(100dvh - 40px); overflow-y: auto; overscroll-behavior: contain;
-  padding: clamp(26px, 4vw, 44px); border-radius: 28px; background: #121319; color: #f3f2ef; border: 1px solid rgba(255,255,255,.09);
-  box-shadow: 0 60px 120px -40px rgba(0,0,0,.8); opacity: 0; transform: translateY(30px) scale(.97); transition: opacity .5s var(--ease), transform .6s var(--ease); }
-.pop-box::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; background: radial-gradient(500px circle at 100% 0%, rgba(213,51,52,.22), transparent 55%); }
+.pop-box { position: relative; width: min(600px, 100%); max-height: calc(100vh - 40px); max-height: calc(100dvh - 40px); overflow-y: auto; overscroll-behavior: contain;
+  padding: 28px 34px 30px; border-radius: 24px; background: #fff; color: var(--ink); border-top: 4px solid var(--red);
+  box-shadow: 0 60px 120px -40px rgba(0,0,0,.6); opacity: 0; transform: translateY(30px) scale(.97); transition: opacity .5s var(--ease), transform .6s var(--ease); }
 .pop.is-open .pop-box { opacity: 1; transform: none; }
-.pop-close { position: absolute; top: 18px; right: 18px; z-index: 2; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.16); background: transparent; cursor: pointer; transition: background .3s, border-color .3s, transform .5s var(--ease); }
-.pop-close span { position: absolute; left: 13px; right: 13px; top: 21px; height: 1.6px; background: #fff; transform: rotate(45deg); }
+.pop-close { position: absolute; top: 16px; right: 16px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(22,23,28,.14); background: #fff; cursor: pointer; transition: background .3s, border-color .3s, transform .5s var(--ease); }
+.pop-close span { position: absolute; left: 12px; right: 12px; top: 19px; height: 1.6px; background: var(--ink); transform: rotate(45deg); transition: background .3s; }
 .pop-close span + span { transform: rotate(-45deg); }
 .pop-close:hover { background: var(--red); border-color: var(--red); transform: rotate(90deg); }
-.pop-head { position: relative; display: flex; align-items: center; gap: 16px; padding-right: 50px; }
-.pop-logo .logo-anim > img:first-child { width: 64px; }
-.pop-kicker { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(243,242,239,.55); margin-bottom: 2px; }
-.pop-head h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); font-weight: 700; letter-spacing: -.04em; line-height: 1.05; }
+.pop-close:hover span { background: #fff; }
+.pop-head { position: relative; display: flex; align-items: center; gap: 14px; padding-right: 46px; }
+.pop-logo .logo-anim > img:first-child { width: 56px; }
+.pop-kicker { font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(22,23,28,.5); margin-bottom: 2px; }
+.pop-head h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; letter-spacing: -.04em; line-height: 1.05; color: var(--ink); }
 .pop-head h2 em { color: var(--red); font-weight: 300; }
-.pop-lead { position: relative; margin: 14px 0 22px; font-size: .92rem; font-weight: 300; color: rgba(243,242,239,.7); }
-.pop-form { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 14px; }
+.pop-lead { margin: 10px 0 18px; font-size: .88rem; color: rgba(22,23,28,.62); }
+.pop-form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 12px; }
 .pf-full { grid-column: 1 / -1; }
-.pop-form label { display: flex; flex-direction: column; gap: 6px; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(243,242,239,.55); }
-.pop-form input, .pop-form select, .pop-form textarea { font: inherit; font-size: .95rem; letter-spacing: 0; text-transform: none; color: #f3f2ef; width: 100%;
-  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 12px 14px; outline: none; transition: border-color .3s, background .3s; }
-.pop-form select option { color: var(--ink); }
-.pop-form textarea { resize: vertical; min-height: 90px; }
-.pop-form input:focus, .pop-form select:focus, .pop-form textarea:focus { border-color: var(--red); background: rgba(255,255,255,.08); }
-.pop-form .is-invalid { border-color: var(--red-2) !important; }
-.pf-check { flex-direction: row !important; align-items: flex-start; gap: 10px !important; text-transform: none !important; letter-spacing: 0 !important; font-size: .8rem !important; line-height: 1.5; cursor: pointer; }
-.pf-check input { width: 18px !important; height: 18px; padding: 0 !important; flex-shrink: 0; margin-top: 2px; accent-color: var(--red); }
-.pf-check.is-invalid span { color: var(--red-2); }
-.pf-check a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
-.pf-foot { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 6px; }
+.pop-form label { display: block; }
+.pop-form .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.pop-form input, .pop-form select, .pop-form textarea { font: inherit; font-size: .92rem; color: var(--ink); width: 100%;
+  background: #f4f2ee; border: 1px solid rgba(22,23,28,.1); border-radius: 10px; padding: 10px 14px; outline: none; transition: border-color .3s, background .3s; }
+.pop-form input::placeholder, .pop-form textarea::placeholder { color: rgba(22,23,28,.48); }
+.pop-form textarea { resize: vertical; min-height: 76px; height: 76px; display: block; }
+.pop-form input:focus, .pop-form select:focus, .pop-form textarea:focus { border-color: var(--red); background: #fff; }
+.pop-form .is-invalid { border-color: var(--red) !important; background: #fff5f5; }
+.pop-form .pf-check { display: flex; align-items: flex-start; gap: 10px; font-size: .76rem; line-height: 1.45; color: rgba(22,23,28,.66); cursor: pointer; }
+.pf-check input { width: 16px !important; height: 16px; padding: 0 !important; flex-shrink: 0; margin-top: 2px; accent-color: var(--red); }
+.pf-check.is-invalid span { color: var(--red); }
+.pf-check a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.pf-foot { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 4px; }
 .pf-foot .btn-pill { border: 0; cursor: pointer; font: inherit; font-weight: 600; font-size: .9rem; }
-.pf-msg { font-size: .85rem; color: rgba(243,242,239,.7); }
-.pf-msg.ok { color: #3ddc84; } .pf-msg.err { color: var(--red-2); }
+.pf-foot .btn-pill::before { background: var(--ink); }
+.pf-foot .btn-pill:hover { color: #fff; }
+.pf-msg { font-size: .82rem; color: rgba(22,23,28,.66); }
+.pf-msg.ok { color: #1f9d55; } .pf-msg.err { color: var(--red); }
 @media (max-width: 560px) {
   .pop { padding: 10px; }
-  .pop-box { border-radius: 22px; }
-  .pop-form { grid-template-columns: 1fr; }
+  .pop-box { padding: 20px 18px 22px; border-radius: 20px; }
+  .pop-lead { margin: 6px 0 12px; }
+  .pop-form input, .pop-form select { padding: 9px 12px; }
+  .pop-form textarea { min-height: 60px; height: 60px; }
+  .pop-form { grid-template-columns: 1fr; gap: 8px; }
   .pop-logo { display: none; }
 }

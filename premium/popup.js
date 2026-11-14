@@ -20,18 +20,18 @@
     '<div class="pop-box" data-lenis-prevent>' +
       '<button class="pop-close" type="button" aria-label="Schließen" data-pop-close><span></span><span></span></button>' +
       '<div class="pop-head">' +
-        '<span class="pop-logo"><span class="logo-anim"><img src="' + base + 'assets/logos/aw-logo.png" alt="" /><img class="logo-spark" src="' + base + 'assets/img/electricity-dark.gif" alt="" /></span></span>' +
+        '<span class="pop-logo"><span class="logo-anim"><img src="' + base + 'assets/logos/aw-logo.png" alt="" /><img class="logo-spark" src="' + base + 'assets/img/electricity.gif" alt="" /></span></span>' +
         '<div><p class="pop-kicker">AW Elektrotechnik</p><h2 id="popTitle">Angebot <em>anfordern</em>.</h2></div>' +
       '</div>' +
-      '<p class="pop-lead">Kostenlos &amp; unverbindlich — schildern Sie uns kurz Ihr Vorhaben, wir melden uns zeitnah.</p>' +
+      '<p class="pop-lead">Kostenlos &amp; unverbindlich — wir melden uns zeitnah.</p>' +
       '<form class="pop-form" novalidate>' +
-        '<label class="pf-full"><span>Name</span><input type="text" name="name" autocomplete="name" /></label>' +
-        '<label><span>E-Mail *</span><input type="email" name="email" required autocomplete="email" /></label>' +
-        '<label><span>Telefon</span><input type="tel" name="telefon" autocomplete="tel" /></label>' +
-        '<label><span>Adresse *</span><input type="text" name="adresse" required autocomplete="street-address" /></label>' +
-        '<label><span>Stadt</span><input type="text" name="stadt" autocomplete="address-level2" /></label>' +
-        '<label class="pf-full"><span>Leistung</span><select name="leistung">' + opts.map(function (o) { return "<option>" + o + "</option>"; }).join("") + '</select></label>' +
-        '<label class="pf-full"><span>Ihr Kommentar</span><textarea name="kommentar" rows="3"></textarea></label>' +
+        '<label class="pf-full"><span class="sr">Name</span><input type="text" name="name" placeholder="Name" autocomplete="name" /></label>' +
+        '<label><span class="sr">E-Mail</span><input type="email" name="email" placeholder="E-Mail *" required autocomplete="email" /></label>' +
+        '<label><span class="sr">Telefon</span><input type="tel" name="telefon" placeholder="Telefon" autocomplete="tel" /></label>' +
+        '<label><span class="sr">Adresse</span><input type="text" name="adresse" placeholder="Adresse *" required autocomplete="street-address" /></label>' +
+        '<label><span class="sr">Stadt</span><input type="text" name="stadt" placeholder="Stadt" autocomplete="address-level2" /></label>' +
+        '<label class="pf-full"><span class="sr">Leistung</span><select name="leistung">' + opts.map(function (o) { return "<option>" + o + "</option>"; }).join("") + '</select></label>' +
+        '<label class="pf-full"><span class="sr">Ihr Kommentar</span><textarea name="kommentar" rows="3" placeholder="Ihr Kommentar"></textarea></label>' +
         '<label class="pf-check pf-full"><input type="checkbox" name="dsgvo" required /><span>Ich habe die <a href="' + base + 'datenschutz/">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Angaben zur Beantwortung meiner Anfrage einverstanden. *</span></label>' +
         '<div class="pf-foot pf-full"><button type="submit" class="btn-pill"><span>Angebot einholen</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></button><p class="pf-msg" role="status" aria-live="polite"></p></div>' +
       '</form>' +
