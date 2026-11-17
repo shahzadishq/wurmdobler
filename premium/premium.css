@@ -827,3 +827,20 @@ html.pop-lock, html.pop-lock body { overflow: hidden; }
 
 /* Service card image anchored to the top (keeps faces in frame) */
 .svc-media img.img-top { object-position: 50% 8%; transform-origin: 50% 0; }
+
+/* Standorte – Kontakt (E-Mail + Telefon mit Icons) */
+.loc-foot { align-items: flex-end; gap: 16px; }
+.loc-contact { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.loc-contact b { color: var(--text); font-weight: 600; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 2px; }
+.loc-contact a { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: .92rem; color: var(--text); transition: color .3s; overflow-wrap: anywhere; }
+.loc-contact a:hover { color: var(--red-2); }
+.loc-contact svg { flex: 0 0 18px; width: 18px; height: 18px; fill: none; stroke: var(--red); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.loc-go { flex-shrink: 0; }
+@media (max-width: 640px) {
+  .loc-contact a { font-size: .84rem; gap: 8px; overflow-wrap: normal; white-space: nowrap; }
+  .loc-contact svg { flex-basis: 16px; width: 16px; height: 16px; }
+  .loc-foot .loc-go { width: 44px; height: 44px; }
+}
+@media (max-width: 400px) { .loc-contact a { font-size: .78rem; } .loc-foot { gap: 10px; } }
+/* if e-mail + route button don't fit side by side, the button wraps below (right-aligned) */
+.loc-foot { flex-wrap: wrap; } .loc-foot .loc-go { margin-left: auto; }
