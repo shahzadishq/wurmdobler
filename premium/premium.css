@@ -824,3 +824,6 @@ html.pop-lock, html.pop-lock body { overflow: hidden; }
 .ftr-contact li > span { display: block; }
 .ftr-contact b { display: block; font-weight: 600; color: var(--ink, inherit); font-size: .8rem; letter-spacing: .02em; margin-bottom: 2px; }
 @media (max-width: 640px) { .ftr-top > div:last-child { grid-column: 1 / -1; } }
+
+/* Service card image anchored to the top (keeps faces in frame) */
+.svc-media img.img-top { object-position: 50% 8%; transform-origin: 50% 0; }
