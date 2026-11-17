@@ -448,7 +448,7 @@ em { font-style: italic; font-weight: 300; }
   .stat { padding-bottom: 30px; }
   .works-cols { grid-template-columns: 1fr 1fr; }
   .wcol:nth-child(2) { margin-top: 60px; }
-  .wcol:nth-child(3) { display: none; }
+  .wcol:nth-child(3) { display: contents; }
   .process-grid { grid-template-columns: 1fr; }
   .process-sticky { position: static; }
   .locs-grid { grid-template-columns: 1fr; }
@@ -844,3 +844,22 @@ html.pop-lock, html.pop-lock body { overflow: hidden; }
 @media (max-width: 400px) { .loc-contact a { font-size: .78rem; } .loc-foot { gap: 10px; } }
 /* if e-mail + route button don't fit side by side, the button wraps below (right-aligned) */
 .loc-foot { flex-wrap: wrap; } .loc-foot .loc-go { margin-left: auto; }
+
+/* ---------- Mobile polish (Nov 2026) ---------- */
+@media (max-width: 860px) {
+  /* Gallery: show all photos as an even 2-column grid (no hidden 3rd column, no parallax offset) */
+  .works-cols { grid-template-columns: 1fr 1fr; }
+  .wcol, .wcol:nth-child(3) { display: contents; }
+  .wcol:nth-child(2) { margin-top: 0; }
+  .work figcaption { padding: 40px 12px 12px; }
+  .work figcaption span { font-size: .56rem; letter-spacing: .14em; }
+  .work figcaption b { font-size: .92rem; line-height: 1.2; hyphens: auto; -webkit-hyphens: auto; overflow-wrap: anywhere; }
+  /* Hero: tone down the KNX switch photo so its printed labels don't clash with the headline */
+  .hero-media img { opacity: .5; }
+}
+/* Footer links: larger tap targets on touch screens */
+@media (hover: none) and (pointer: coarse) {
+  .ftr li { margin-bottom: 2px; }
+  .ftr li a { display: inline-block; padding: 7px 0; }
+  .to-top { display: inline-block; padding: 8px 0; }
+}
