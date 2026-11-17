@@ -817,3 +817,10 @@ html.pop-lock, html.pop-lock body { overflow: hidden; }
   .pop-logo { margin-bottom: 10px; }
   .pop-logo .logo-anim > img:first-child { width: 62px; }
 }
+
+/* Footer – Kontakt column with icons, opening hours & phone hours */
+.ftr-contact li { display: flex; align-items: flex-start; gap: 10px; }
+.ftr-contact .ftr-ico { flex: 0 0 16px; width: 16px; height: 16px; margin-top: 3px; fill: none; stroke: var(--red); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ftr-contact li > span { display: block; }
+.ftr-contact b { display: block; font-weight: 600; color: var(--ink, inherit); font-size: .8rem; letter-spacing: .02em; margin-bottom: 2px; }
+@media (max-width: 640px) { .ftr-top > div:last-child { grid-column: 1 / -1; } }

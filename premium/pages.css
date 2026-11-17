@@ -260,3 +260,13 @@ a.cinfo-card:hover { transform: translateY(-6px); box-shadow: 0 40px 70px -45px 
   .acc summary { gap: 14px; }
   .ftr-top.ftr-top-5 { grid-template-columns: 1fr 1fr; }
 }
+
+/* Sprungnavigation (Leistungen): wrap instead of cut-off horizontal scroll on tablets/phones */
+@media (max-width: 960px) {
+  .jump { position: static; }
+  .jump-inner { flex-wrap: wrap; justify-content: center; overflow: visible; gap: 8px; }
+}
+@media (max-width: 640px) {
+  .jump-inner { padding-top: 12px; padding-bottom: 12px; gap: 6px; }
+  .jump a { padding: 8px 12px; font-size: .76rem; }
+}
