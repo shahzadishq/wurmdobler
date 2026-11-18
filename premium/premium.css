@@ -863,7 +863,7 @@ html.pop-lock, html.pop-lock body { overflow: hidden; }
 @media (hover: none) and (pointer: coarse) {
   .ftr li { margin-bottom: 2px; }
   .ftr li a { display: inline-block; padding: 7px 0; }
-  .to-top { display: inline-block; padding: 8px 0; }
+  .to-top { padding: 8px 0; }
 }
 
 /* Footer Kontakt: icon vertically centred on the first text line (desktop + touch) */
@@ -875,3 +875,9 @@ html.pop-lock, html.pop-lock body { overflow: hidden; }
   .ftr-contact li > a { padding: 0; }
 }
 .ftr-contact b { line-height: 1.472rem; } /* same line box as the .92rem text so the icon centres on the label */
+
+/* Touch screens: no hover "roll" duplicate (the red copy must never show next to the text) */
+@media (hover: none) {
+  .link-roll span::after { content: none; display: none; }
+  .link-roll:hover span { transform: none; }
+}
