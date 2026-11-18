@@ -706,7 +706,9 @@ em { font-style: italic; font-weight: 300; }
 .svc-media { flex: 0 0 auto; height: clamp(200px, 34vh, 320px); }
 
 /* Electricity GIF colour (same filter as on wurmdobler-elektro.de) */
-.logo-anim .logo-spark { filter: brightness(0); } /* black bolt (was green via hue-rotate) */
+/* Electricity bolt: white on dark backgrounds (header, loader, menu, hero badge), black in the light footer */
+.logo-anim .logo-spark { filter: brightness(0) invert(1); }
+.ftr .logo-anim .logo-spark { filter: brightness(0); }
 
 /* Hero badge: AW icon with the electricity GIF */
 .hero-badge .logo-anim { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
@@ -863,3 +865,13 @@ html.pop-lock, html.pop-lock body { overflow: hidden; }
   .ftr li a { display: inline-block; padding: 7px 0; }
   .to-top { display: inline-block; padding: 8px 0; }
 }
+
+/* Footer Kontakt: icon vertically centred on the first text line (desktop + touch) */
+.ftr-contact li { align-items: flex-start; line-height: 1.6; }
+.ftr-contact .ftr-ico { height: 1.6em; margin-top: 0; }
+.ftr-contact li > a, .ftr-contact li > span { line-height: 1.6; }
+@media (hover: none) and (pointer: coarse) {
+  .ftr-contact li { padding: 5px 0; margin-bottom: 0; }
+  .ftr-contact li > a { padding: 0; }
+}
+.ftr-contact b { line-height: 1.472rem; } /* same line box as the .92rem text so the icon centres on the label */
