@@ -270,3 +270,12 @@ a.cinfo-card:hover { transform: translateY(-6px); box-shadow: 0 40px 70px -45px 
   .jump-inner { padding-top: 12px; padding-bottom: 12px; gap: 6px; }
   .jump a { padding: 8px 12px; font-size: .76rem; }
 }
+
+/* Zertifikate: 10 items -> 5 per row on desktop (2 full rows), 2 per row on tablets/phones */
+.certs { grid-template-columns: repeat(5, 1fr); gap: 18px; }
+@media (max-width: 1100px) { .certs { grid-template-columns: repeat(5, 1fr); gap: 12px; } .cert-cap b { font-size: .82rem; } }
+@media (max-width: 860px) { .certs { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
+.certs { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.cert { min-width: 0; }
+.cert-cap b { min-width: 0; hyphens: auto; -webkit-hyphens: auto; overflow-wrap: anywhere; }
+@media (max-width: 860px) { .certs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
