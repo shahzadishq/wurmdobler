@@ -881,3 +881,4 @@ html.pop-lock, html.pop-lock body { overflow: hidden; }
   .link-roll span::after { content: none; display: none; }
   .link-roll:hover span { transform: none; }
 }
+.svc-media img.img-right { object-position: 72% 50%; }
