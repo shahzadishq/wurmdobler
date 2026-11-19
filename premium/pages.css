@@ -279,3 +279,4 @@ a.cinfo-card:hover { transform: translateY(-6px); box-shadow: 0 40px 70px -45px 
 .cert { min-width: 0; }
 .cert-cap b { min-width: 0; hyphens: auto; -webkit-hyphens: auto; overflow-wrap: anywhere; }
 @media (max-width: 860px) { .certs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.srow-media img.img-right { object-position: 85% 50%; }
